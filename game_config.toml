@@ -1,0 +1,69 @@
+name = "Die natürlichen Zahlen"
+version = "2.0"
+extra_files = "src/N"
+intro = "src/intro.lean"
+
+[[worlds]]
+name = "Peano"
+id = 1
+levels = [
+	"src/game/Peano/level_1.lean",
+	"src/game/Peano/level_2.lean",
+	"src/game/Peano/level_3.lean",
+]
+
+[[worlds]]
+name = "Addition"
+id = 2
+parents = [1]
+levels = [
+	"src/game/Addition/level_1.lean",
+	"src/game/Addition/level_2.lean",
+	"src/game/Addition/level_3.lean",
+	"src/game/Addition/level_4.lean",
+	"src/game/Addition/level_5.lean",
+	"src/game/Addition/level_6.lean",
+	"src/game/Addition/level_7.lean",
+	"src/game/Addition/level_8.lean",
+	"src/game/Addition/level_9.lean",
+	"src/game/Addition/level_10.lean",
+	"src/game/Addition/level_11.lean",
+	"src/game/Addition/level_12.lean",
+	"src/game/Addition/level_13.lean",
+]
+
+[[worlds]]
+name = "Multiplikation"
+id = 3
+parents = [2]
+levels = [
+	"src/game/Multiplikation/level_1.lean",
+	"src/game/Multiplikation/level_2.lean",
+	"src/game/Multiplikation/level_3.lean",
+	"src/game/Multiplikation/level_4.lean",
+	"src/game/Multiplikation/level_5.lean",
+	"src/game/Multiplikation/level_6.lean",
+]
+
+[[worlds]]
+name = "Ungleichungen"
+id = 4
+parents = [3]
+levels = [
+	"src/game/Ungleichungen/level_1.lean",
+	"src/game/Ungleichungen/level_2.lean",
+	"src/game/Ungleichungen/level_3.lean",
+	"src/game/Ungleichungen/level_4.lean",
+	"src/game/Ungleichungen/level_5.lean",
+	"src/game/Ungleichungen/level_6.lean",
+]
+
+[[worlds]]
+name = "Division mit Rest"
+id = 5
+parents = [4]
+levels = [
+	"src/game/Division_mit_Rest/level_1.lean",
+	"src/game/Division_mit_Rest/level_2.lean",
+	"src/game/Division_mit_Rest/level_3.lean",
+]
