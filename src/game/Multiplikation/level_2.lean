@@ -4,33 +4,41 @@ import mynat.mul -- hide
 import game.Multiplikation.level_1 --hide
 namespace N -- hide
 
-/- Tactic : repeat
-## Anleitung
-falls du in der zu beweisenden Aussage einen Befehl (z.B. `rw add_zero,`) mehrmals
-anwenden kannst, dann wird `{repeat {⬝,},` den Befehl so oft ausführen, bis es
-keine Instanz mehr gibt, an der der Befehl ausgeführt werden kann.
-## Beispiel
-Bei folgendem Zustand:
-```
-a b : N
-⊢ a + zero + b = a + (b + zero)
-```
-wird `{repeat {rw add_zero,},` zweimal `add_zero` anwenden und
-somit das Ziel zu `⊢ a + b = a + b ` umformen und damit
-lösen.
+/-
+In diesem Level werden wir zeigen, dass $(a+1)*b=a*b+b$, ist, oder mit `succ`
+ausgedrückt: `succ(a) * b = a * b + b`. Du kannst diesen Beweis wieder über
+Induktion lösen.
+-/
+
+/- Hint : Ist die Induktion über `a` oder über `b` geschickter?
+Bei `a` als Induktionsvariable hättest du im Induktionsschritt `succ(succ(a))*b=succ(a)*b+b`.
+Hier wird es schwer sein so umzuformen, dass man die Induktionsvoraussetzung verwenden kann,
+weil wir bis jetzt nur `mul_succ` verwenden können, welches angewandt werden kann
+wenn im zweiten Faktor `succ` vorkommt. Dafür eignet sich `b` als Induktionsvariable,
+weil genau dann beim Induktionsschritt `succ` im zweiten Faktor vorkommt.
 -/
 
 /-
-Manchmal möchtest du einen Befehl mehrmals hintereinander ausführen. Wenn du dir
-zum Beispiel den Induktionsanfang dieses Levels anschaust, musst du zeigen, dass
-`a.succ * zero = a * zero + zero`, du könntest damit anfangen, überall wo mit
-$0$ multipliziert wird `rw mul_zero,` anzuwenden. Anstatt den Befehl zweimal
-auszuschreiben, kannst du `{repeat {rw mul_zero,},` anwenden. Dann wird LEAN den
-Befehl `rw mul_zero,` so oft ausführen, bis es keine Instanz der Form `a+zero` gibt.
+Du kannst mit diesem Beweisgerüst starten. Zu ergänzen ist:
+1. Die Induktionsvariable
+2. Der Induktionsanfang
+3. Die Umformungen zu Beginn des Induktionsschrittes, die gemacht werden müssen damit
+die Induktionsvorraussetzung `hd` verwendet werden kann.
+
+```
+induction Induktionsvariable with d hd,
+{rw N_zero_eq_zero,
+sorry,},
+{sorry,
+rw hd,
+repeat {rw add_succ,},
+rw add_right_comm,
+},
+```
 -/
 
 /- Theorem
-`succ`$(a) * b = a * b + b$
+Seien $a, b \in \mathbb{N}$. Dann ist `succ`$(a) * b = a * b + b$.
 -/
 theorem succ_mul (a b : N) : succ(a) * b = a * b + b :=
 begin
@@ -38,11 +46,9 @@ induction b with d hd,
 {rw N_zero_eq_zero,
 repeat {rw mul_zero,},
 rw add_zero,},
-{rw mul_succ,
-rw mul_succ,
+{repeat {rw mul_succ,},
 rw hd,
-rw add_succ,
-rw add_succ,
+repeat {rw add_succ,},
 rw add_right_comm,
 },
 

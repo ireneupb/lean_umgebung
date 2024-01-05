@@ -1,50 +1,66 @@
--- Level name : TBD
+-- Level name : Lineares Gleichungssystem
 
 -- namespace nat -- hide 
 
 import data.nat.basic -- hide
 import tactic -- hide
+import mynat.one_eq -- hide
 namespace nat -- hide
 
 /-
-Use needs to be introduced at latest here.
+Wir schauen uns nun ein lineares Gleichungssystem an. Gegeben ist:
+```
+a + b = 8
+b = 3
+```
+Und zu zeigen ist, dass `a=5`. Auch hier könnte man direkt `linarith` anwenden
+und wäre fertig. Wir wollen uns aber die Frage stellen, wie wir eine hypothese
+wie `h`, die ein "und" (`∧`) enthält in zwei hypothesen einteilen kann, damit man
+sie einzeln verwenden kann.
+
+Dazu gibt es die Tactic `cases`. Für eine hypothese `h : h1 ∧ h2` teilt `cases h with f g,`
+die hypothese auf, sodass man die hypothesen `f : h1` und `g : h2` erhält. Die Namen der
+neuen Hypothesen können wir hier (`f g`) explizit angegeben werden oder werden ansonsten
+von LEAN vergeben.
+
+Wir werden in diesem Level so vorgehen, dass wir die hypothese aufteilen um `b=3` in 
+`a+b=8` einzusetzten. Dafür kannst du folgenden Schritte in deinem Beweis machen:
+1. Teile `h` auf. Du kannst die neuen hypothesen `hab` und `ha` nennen, um anzudeuten,
+dass `hab` die Gleichung ist die sowohl `a` wie auch `b` enthält und `ha` nur `a`.
+2. Setzte mithilfe von `rw` die Gleichung `hb` in `hab` ein.
+3. Nutze `linarith` um mit Umformungen den Beweis zu beenden.
 -/
 
-/- Hint : Hint Title?
-Hint teeeext.
--/
-
-/-
-More teeeeext (8)
--/
 
 /- Theorem
-Für natürliche Zahlen m,n mit $m>0$ gilt: Es gibt natürliche Zahlen q, r mit $n = m*q + r$
+Seien $a, b \in \mathbb{N}$ mit $a+b=8$ und $b=3$. Dann ist $a=5$.
 -/
-theorem LGS_1 (n m : ℕ) (h : n+m=8 ∧ succ(m)=1) : n=8 :=
+theorem LGS_1 (a b : ℕ) (h : a+b=8 ∧ b=3) : a=5 :=
 begin
-cases h with hnm hm,
-have h1 : m=0,
-{apply succ.inj,
-exact hm,},
-rw [h1] at hnm,
-rw [add_zero] at hnm,
-exact hnm,
+cases h with hab hb,
+rw hb at hab,
+linarith,
 end
 
-/- Tactic : rw
+/- Tactic : cases
 ## Anleitung
-Wenn `h` eine Aussage des Typs `X = Y` ist, dann wird
-`rw h,` alle `X` in der zu beweisenden Aussage durch
-`Y` austauschen.
-Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
+Für eine hypothese `h : h1 ∧ h2` teilt `cases h with f g,`
+die hypothese auf, sodass man die hypothesen `f : h1` und `g : h2` erhält.
 ## Beispiel
 Bei folgendem Zustand:
 ```
-x : N
-⊢ succ (x + 0) = succ (x)
+ab: ℕ
+h: a + b = 8 ∧ b = 3
+⊢ a = 5
 ```
-wird `rw add_zero,` das Ziel umändern zu `⊢ succ x = succ (x)`,
-und damit den Beweis abschließen.
+führt `cases h with hab hb,` zu:
+```
+ab: ℕ
+hab: a + b = 8
+hb: b = 3
+⊢ a = 5
+```
+.
 -/
+
 end nat -- hide

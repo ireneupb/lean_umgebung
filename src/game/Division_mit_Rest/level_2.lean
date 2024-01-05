@@ -3,59 +3,87 @@
 -- namespace nat -- hide 
 
 import data.nat.basic -- hide
-import tactic
+import tactic -- hide
 import game.Division_mit_Rest.level_1 --hide
 namespace nat -- hide 
 
 /-
-Text Text Text
--/
+Bevor wir uns unserem finalem Level widmen, indem wir die Aussage der
+Division mit Rest für $r < m$ zeigen, brauchen wir noch ein Lemma, das wir
+hier auslagern, damit der Beweis im nächsten Level nicht so kompliziert
+wird. 
 
-/- Hint : Hint Title?
-Hint teeeext.
--/
+Das Lemma wird dazu nutzen, im Induktionsschritt des Beweises der Division
+mir Rest zu zeigen, dass $r < m$. Aus der Induktionsvoraussetzung haben wir:
+```
+hr : r < m
+hq : d = m*q+r
+```
+Außerdem wird dieses Lemma in einer Fallunterscheidung verwendet, in dem Fall
+das `d.succ` kein Vielfaches von `m` ist, also:
+```
+hq' : ¬ ∃ (q':ℕ), d.succ=m*q'
+```
 
-/-
-More teeeeext (8)
+In diesem Level musst du den Beweus nicht selber machen aber solltest ihn lesen
+und nachvollziehen. Dazu kannst du den Beweis direkt in das Feld kopieren:
+```
+/- zuerst zeigen wir, dass r+1 ≤ m (da r < m) -/
+  have hr_succ_le_m : r + 1 ≤ m,
+  { exact succ_le_of_lt hr, },
+  /- nun führen wir einen Widerspruchbeweis. Wenn wir nämlich annehmen,
+  dass r+1 ≥ m, dann können wir danach mir hr_succ_le_m Gleichheit folgern -/ 
+  by_contra h_contr,
+  push_neg at h_contr,
+  /- nun folgern wir r+1=m -/
+  have hr1_m : r+1=m,
+  {exact le_antisymm hr_succ_le_m h_contr,}, 
+  /- damit können wir zeigen, dass d+1=m*(q+1) ist -/
+  have d_mult_q : d.succ = m*(q+1),
+  {rw succ_eq_add_one,
+  linarith,
+  },
+  /- Um nun einen Widerspruch herzustellen müssen wir dies noch
+  als Existenzaussage formulieren. -/
+  have h_eq : ∃ (q : ℕ), d.succ = m * q := ⟨q+1, d_mult_q⟩,
+  /- Wir haven nun zwei widersprüchliche Aussagen im Beweiszustand.
+  Mit contradiction kann der Widerspruchsbeweis beender werden. -/
+  contradiction,
+```
+Die Kommentare führen dich durch den Beweis. Es werden zwei Sätze verwendet,
+die du nicht kennst. Hier ist ihre Bedeutung:
+`succ_le_of_lt {a b : ℕ} (h : a < b) : succ a ≤ b` 
+`le_antisymm : ∀ {a b : ℕ}, (a ≤ b ∧ b ≤ a) → a = b`
 -/
 
 /- Theorem
-Für natürliche Zahlen m,n mit $m>0$ gilt: Es gibt natürliche Zahlen q, r mit $r < m$ und $n = m*q + r$
+Seien $m,d,q,r ∈ \mathbb{N}$ mit $r < m$ und $d=m*q+r$. Falls es kein $q' ∈ \mathbb{N}$ gibt
+sodass $d+1=m*q$, dann gilt, dass $r+1 < m$
 -/
-theorem lemma_div (m d q r : ℕ) (hq' : ¬ ∃ (q':ℕ), d.succ=m*q') (hq : d = m*q+r) (hr : r < m): r+1<m :=
+theorem lemma_div (m d q r : ℕ) (hr : r < m) (hq : d = m*q+r) (hq' : ¬ ∃ (q':ℕ), d.succ=m*q') : r+1<m :=
 begin
-  by_contra h_contr,
-  push_neg at h_contr,
+  /- zuerst zeigen wir, dass r+1 ≤ m (da r < m) -/
   have hr_succ_le_m : r + 1 ≤ m,
   { exact succ_le_of_lt hr, },
+  /- nun führen wir einen Widerspruchbeweis. Wenn wir nämlich annehmen,
+  dass r+1 ≥ m, dann können wir danach mir hr_succ_le_m Gleichheit folgern -/ 
+  by_contra h_contr,
+  push_neg at h_contr,
+  /- nun folgern wir r+1=m -/
   have hr1_m : r+1=m,
   {exact le_antisymm hr_succ_le_m h_contr,}, 
+  /- damit können wir zeigen, dass d+1=m*(q+1) ist -/
   have d_mult_q : d.succ = m*(q+1),
   {rw succ_eq_add_one,
-  rw hq,
-  rw add_assoc,
-  rw hr1_m,
-  rw mul_add,
-  simp,
+  linarith,
   },
+  /- Um nun einen Widerspruch herzustellen müssen wir dies noch
+  als Existenzaussage formulieren. -/
   have h_eq : ∃ (q : ℕ), d.succ = m * q := ⟨q+1, d_mult_q⟩,
+  /- Wir haven nun zwei widersprüchliche Aussagen im Beweiszustand.
+  Mit contradiction kann der Widerspruchsbeweis beender werden. -/
   contradiction,
         
 end
 
-/- Tactic : rw
-## Anleitung
-Wenn `h` eine Aussage des Typs `X = Y` ist, dann wird
-`rw h,` alle `X` in der zu beweisenden Aussage durch
-`Y` austauschen.
-Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
-## Beispiel
-Bei folgendem Zustand:
-```
-x : N
-⊢ succ (x + 0) = succ (x)
-```
-wird `rw add_zero,` das Ziel umändern zu `⊢ succ x = succ (x)`,
-und damit den Beweis abschließen.
--/
 end nat -- hide

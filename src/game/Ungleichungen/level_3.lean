@@ -1,27 +1,19 @@
--- Level name : Ungleichungen TBD
-
--- namespace nat -- hide 
+-- Level name : Gerade Quadratzahl
 
 import data.nat.basic -- hide
-import tactic
+import tactic -- hide
 namespace nat -- hide 
 
 /-
-Text, split
--/
-
-/- Hint : Hint Title?
-Hint teeeext.
--/
-
-/-
-More teeeeext (8)
+In diesem Level möchten wir zeigen, dass es eine gerade Quadratzahl gibt. Eine
+natürliche Zahl $a$ heiß Quadratzahl, genau dann wenn es eine natürliche Zahl
+$b$ gibt, sodass $a=b^2$. In diesem Level werden wir das als `a=c*c` schreiben.
 -/
 
 /- Theorem
-TBD
+Es gibt $a, b, c \in \mathbb{N}$ mit $a=2*b$ und $a=c*c$.
 -/
-theorem gerades_quadrat : ∃ n m o : ℕ, n=m+m ∧ n=o*o :=
+theorem gerades_quadrat : ∃ a b c : ℕ, a=2*b ∧ a=c*c :=
 begin
   use [16, 8, 4],
   split,
@@ -29,19 +21,8 @@ begin
   {linarith,},
 end
 
-/- Tactic : rw
-## Anleitung
-Wenn `h` eine Aussage des Typs `X = Y` ist, dann wird
-`rw h,` alle `X` in der zu beweisenden Aussage durch
-`Y` austauschen.
-Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
-## Beispiel
-Bei folgendem Zustand:
-```
-x : N
-⊢ succ (x + 0) = succ (x)
-```
-wird `rw add_zero,` das Ziel umändern zu `⊢ succ x = succ (x)`,
-und damit den Beweis abschließen.
+/- Wie war das nochmal mit Beweiszielen die `∧` beinhalten?
+Schau dir dazu die Tactic `split` an.
 -/
+
 end nat -- hide

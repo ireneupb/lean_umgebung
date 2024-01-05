@@ -16,16 +16,20 @@ Bei folgendem Zustand:
 n : N
 ⊢ 2 * n = n + n
 ```
-dann wird `induction n with d hd` zwei neue Ziele öffnen:
+wird `induction n with d hd` zwei neue Ziele öffnen:
 ```
 ⊢ 2 * 0 = 0 + 0
 ```
 und
 ```
-d : mynat,
+d : N,
 hd : 2 * d = d + d
 ⊢ 2 * succ d = succ d + succ d
 ```
+## Bemerkung
+Für LEAN soll der Induktionsanfang für `zero` gezeigt werden. Wir arbeiten
+aber mit der Darstellung `0` der Zahl Null. Deswegen müssen wir im Induktionsanfang
+die Darstellung der Null mit `rw N_zero_eq_zero,` von `zero` zu `0` ändern.
 -/
 
 /-
@@ -33,9 +37,9 @@ Nach Definition der Addition gilt: $a+0=a$. Wir haben aber noch nicht bewiesen,
 dass die Addition kommutativ ist. Es ist also noch nicht bewiesen, dass auch
 $0+a=a$ gilt.
 
-Dies werden wir über Induktion zeigen. Dazu lernen wir den `induction` Befehl in
+Dies werden wir über Induktion zeigen. Dazu lernen wir die `induction` Tactic in
 LEAN. Um einen Induktionsbeweis zu starten, müssen wir `induction a with d hd,`
-aufrufen. Dabei ist das $a$ die Variable, über die induziert werden soll, $d$
+schreiben. Dabei ist das $a$ die Variable, über die induziert werden soll, $d$
 wird der Name der Variable im Induktionsschritt sein, und `hd` ist die Aussage
 der Induktionsvoraussetzung.
 
@@ -49,13 +53,16 @@ die zwei Teile mit geschweiften Klammern umgeben. Dein Beweis hat dann die Form:
   `{},` <br>
 `end` <br>
 Innerhalb der geschweiften Klammern kannst du dann jeweils den Induktionsanfang und
-den Induktionsschritt zeigen.
+den Induktionsschritt zeigen. Hinter die Klammern, wie auch hinter jedem Schritt in
+den Klammern gehört wie immer ein ",".
 
-Zu diesem Beweis gibt es <a href="https://go.upb.de/lean_2_3" target="blank">hier</a> ein Aufgabenblatt.
+ACHTUNG: Für LEAN soll der Induktionsanfang für `zero` gezeigt werden. Wir arbeiten
+aber mit der Darstellung `0` der Zahl Null. Deswegen müssen wir im Induktionsanfang
+die Darstellung der Null mit `rw N_zero_eq_zero,` von `zero` zu `0` ändern.
 -/
 
 /- Theorem
-$0+a=a$
+Sei $a \in \mathbb{N}$. Dann ist $0+a=a$.
 -/
 theorem zero_add (a : N) : 0 + a = a :=
 begin

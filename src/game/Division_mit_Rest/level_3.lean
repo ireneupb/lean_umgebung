@@ -3,24 +3,52 @@
 -- namespace nat -- hide 
 
 import data.nat.basic -- hide
-import tactic
+import tactic -- hide
 import game.Division_mit_Rest.level_2 --hide
 namespace nat -- hide 
 
 /-
-Text Text Text
--/
+Nun können wir den Satz zum Beweis mit Rest zeigen. Dazu fehlt dir nur noch eine
+Tactic, um das Lemma aus dem vorherigem Level anwenden zu können. Wenn die Voraussetzungen
+eines anderen Satz in dem Beweiszustand gegeben sind und das Beweisziel das Ergebnis
+dieses Satzes ist, kann mit `apply Satz Voraussetzungen,` das Ziel gelöst werden.
 
-/- Hint : Hint Title?
-Hint teeeext.
--/
+Wenn man zum Beispiel der Satz:
+```
+theorem mul_gerade (a b : ℕ) (hger : ∃ c : ℕ, a=2*c) : ∃ d : ℕ, a*b = 2*d
+```
+bereits bewiesen wurde und der Beweiszustand:
+```
+c d : ℕ
+hc: ∃ (e : ℕ), c = 2 * e
+⊢ ∃ (f : ℕ), c * d = 2 * f
+```
+ist kann man `apply mul_gerade c d hc,` angewandt werden um den Beweis
+zu lösen. Wichtig ist die Reihenfolge der Voraussetzungen, diese dürfen
+aber natürlich im neuen Kontext einen anderen Namen haben.
 
-/-
-More teeeeext (8)
+In diesem Level kannst du dich an der Struktur des vereinfachten Beweises orientieren:
+```
+theorem exist_divisor_rest_gr (n m : ℕ) (hm : m > 0) : ∃ q r : ℕ, n = m * q + r :=
+begin
+  induction n with d hd,
+  { use [0, 0],
+    simp [hm], },
+  { by_cases hq' : ∃ q', d.succ = m*q',
+    { obtain ⟨q', hq'⟩ := hq',
+      use [q', 0],
+      simp [hq'],},
+    { use [0, d.succ],
+      simp, } }
+end
+
+mit dem Unterschied, dass du nach dem `use` Befehl nun eine Aussage mit `∧` zeigen
+musst und hier also `split` verwenden solltest.
+```
 -/
 
 /- Theorem
-Für natürliche Zahlen m,n mit $m>0$ gilt: Es gibt natürliche Zahlen q, r mit $r < m$ und $n = m*q + r$
+Seien $n,m ∈ \mathbb{N}$ mit $m>0$. Dann gilt: Es gibt $q,r\in \mathbb{N}$ mit $n = m*q + r$ und $r < m$.
 -/
 theorem exist_divisor_rest (m n : ℕ) (hm : m > 0) : ∃ q r : ℕ, n = m * q + r ∧ r < m :=
 begin
@@ -51,25 +79,29 @@ begin
         rw hq,
         rw add_succ, },
       { -- Zeige r kleiner m
-        apply lemma_div m d q r hq2 hq hr,
+        apply lemma_div m d q r hr hq hq2,
         },
     },
   },
 end
 
-/- Tactic : rw
+/- Tactic : apply
 ## Anleitung
-Wenn `h` eine Aussage des Typs `X = Y` ist, dann wird
-`rw h,` alle `X` in der zu beweisenden Aussage durch
-`Y` austauschen.
-Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
+Wenn die Voraussetzungen eines anderen Satz in dem Beweiszustand
+gegeben sind und das Beweisziel das Ergebnis dieses Satzes ist, kann
+mit `apply Satz Voraussetzungen,` das Ziel gelöst werden.
 ## Beispiel
-Bei folgendem Zustand:
+Wenn man zum Beispiel der Satz:
 ```
-x : N
-⊢ succ (x + 0) = succ (x)
+theorem mul_gerade (a b : ℕ) (hger : ∃ c : ℕ, a=2*c) : ∃ d : ℕ, a*b = 2*d
 ```
-wird `rw add_zero,` das Ziel umändern zu `⊢ succ x = succ (x)`,
-und damit den Beweis abschließen.
+bereits bewiesen wurde und der Beweiszustand:
+```
+c d : ℕ
+hc: ∃ (e : ℕ), c = 2 * e
+⊢ ∃ (f : ℕ), c * d = 2 * f
+```
+ist kann man `apply mul_gerade c d hc,` angewandt werden um den Beweis
+zu lösen. Wichtig ist die Reihenfolge der Voraussetzungen.
 -/
 end nat -- hide

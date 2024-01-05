@@ -1,4 +1,4 @@
-name = "Die natürlichen Zahlen"
+name = "Einführung in den Theorembeweiser LEAN"
 version = "2.0"
 extra_files = "src/N"
 intro = "src/intro.lean"
@@ -55,7 +55,6 @@ levels = [
 	"src/game/Ungleichungen/level_3.lean",
 	"src/game/Ungleichungen/level_4.lean",
 	"src/game/Ungleichungen/level_5.lean",
-	"src/game/Ungleichungen/level_6.lean",
 ]
 
 [[worlds]]

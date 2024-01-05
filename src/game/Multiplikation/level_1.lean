@@ -37,12 +37,23 @@ Den beiden definierenden Eigenschaften wird ein Namen gegeben: <br>
 -/
 
 /-
+Wir werden in den nächsten Levels wieder grundlegende Rechenregeln beweisen. Dazu werden
+wir wieder ohne `linarith` arbeiten.
 In diesem Level werden wir zeigen, dass auch die Multiplikation mit $0$ von links $0$ ergibt.
-Wir haben die Kommutativität der Multiplikation noch nicht gezeigt.
+Wir haben die Kommutativität der Multiplikation noch nicht gezeigt. Da die Definition
+der Multiplikation sehr ähnlich zu der der Addition ist, wird auch dieser Beweis sehr ähnlich
+zu dem Beweis $0+a=0$ (Addition - Level 4) sein, du kannst diesen als Fahrplan verwenden:
+```
+induction a with d hd,
+{rw N_zero_eq_zero,
+rw add_zero,},
+{rw add_succ,
+rw hd,},
+```
 -/
 
 /- Theorem
-$0*a=0$
+Sei $a \in \mathbb{N}$. Dann ist $0*a=0$.
 -/
 theorem zero_mul (a: N) : 0*a = 0 :=
 begin

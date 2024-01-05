@@ -1,52 +1,71 @@
--- Level name : TBD
+-- Level name : Lineares Gleichungssystem - Teil 2
 
 -- namespace nat -- hide 
 
 import data.nat.basic -- hide
-import tactic
+import tactic -- hide
 namespace nat -- hide
 
 /-
-Use needs to be introduced at latest here.
--/
-
-/- Hint : Hint Title?
-Hint teeeext.
--/
-
-/-
-More teeeeext (8)
+In diesem Level möchten wir ein letztes Gleichungssystem einführen.
+```
+a+b+3=8
+a=b+1
+```
+Es soll gezeigt werden, dass die Lösung
+```
+a=3
+b=2
+```
+ist. In diesem Fall können wir nicht linarith direkt anwenden, weil in
+unserem Beweisziel ein "und" (`∧`) ist. Man kann aber ein Ziel, welches
+ein "und" (`∧`) enthält mit der Tactic `split` in zwei Unterziele einteilen.
+In unserem Fall wird mit `split,` das Ziel `a=3 ∧ b=2` zu den Zielen
+`a=3` und `b=2`. Wie beim Induktionsbeweis kannst du die beiden Ziele
+in getrennten Umgebungen mit Klammern {} einteilen. Das Gerüst für diesen
+Beweis ist also 
+```
+split,
+{sorry,},
+{sorry,},
+```
+Kopiere dieses Gerüst, schau dir an was der erste Schritt bewirkt und
+ersetze dann die beiden `sorry` mit Beweisen.
 -/
 
 /- Theorem
-Für natürliche Zahlen m,n mit $m>0$ gilt: Es gibt natürliche Zahlen q, r mit $n = m*q + r$
+Seien $a, b \in \mathbb{N}$ mit $a+b+3=8$ und $a=b+1$. Dann ist $a=3$ und $b=2$.
 -/
-theorem LGS_2 (n m : ℕ) (h : n+m+3=8 ∧ n=m+1) : n=3 ∧ m=2 :=
+theorem LGS_2 (a b : ℕ) (h : a+b+3=8 ∧ a=b+1) : a=3 ∧ b=2 :=
 begin
-cases h with h1 h2,
-have umf : m+1+m+3=8,
-{rw ← h2,
-exact h1,},
-have hm : m=2, linarith,
-have hn : n=3, linarith,
 split,
-{exact hn,},
-{exact hm,},
+{linarith,},
+{linarith,},
 end
 
-/- Tactic : rw
+/- Du weißt nicht wie du die Beweise an der Stelle der `sorry` führen sollst?
+Jetzt wo die Ziele jeweils nur einzelne Gleichungen sind kannst du `linarith` verwenden.
+-/
+
+/- Tactic : split
 ## Anleitung
-Wenn `h` eine Aussage des Typs `X = Y` ist, dann wird
-`rw h,` alle `X` in der zu beweisenden Aussage durch
-`Y` austauschen.
-Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
+Man kann aber ein Ziel, welches
+ein "und" (`∧`) enthält mit der Tactic `split` in zwei Unterziele einteilen.
 ## Beispiel
-Bei folgendem Zustand:
+Folgendem Zustand:
 ```
-x : N
-⊢ succ (x + 0) = succ (x)
+ab: ℕ
+h: a + b + 3 = 8 ∧ a = b + 1
+⊢ a = 3 ∧ b = 2
 ```
-wird `rw add_zero,` das Ziel umändern zu `⊢ succ x = succ (x)`,
-und damit den Beweis abschließen.
+wird durch `split,` zu:
+```
+ab: ℕ
+h: a + b + 3 = 8 ∧ a = b + 1
+⊢ a = 3
+ab: ℕ
+h: a + b + 3 = 8 ∧ a = b + 1
+⊢ b = 2
+```
 -/
 end nat -- hide

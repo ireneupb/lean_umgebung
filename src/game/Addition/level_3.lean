@@ -9,7 +9,6 @@ one = succ(zero)
 -/
 
 /-
-TODO: simp!!
 Aus praktischen Gründen möchten wir nun dem Nachfolger von $0$ einen Namen
 geben. Diese Zahl nennen wir $1$. Die Aussage `one = succ(zero)` heißt in
 LEAN `one_eq_succ_zero`.
@@ -21,11 +20,13 @@ LEAN `one_eq_succ_zero`.
 -/
 
 /- 
-Nun können wir zeigen, dass der Nachfolger von $a$ gleich $a+1$ ist. 
+Nun können wir zeigen, dass der Nachfolger von $a$ gleich $a+1$ ist. Löse
+den Beweis mit `rw` und den verfügbaren Axiomen `one_eq_succ_zero`,
+`add_succ` und `add_zero`. 
 -/
 
 /- Theorem
-`succ`$(a) = a + 1$
+Sei $a \in \mathbb{N}$. Dann ist `succ`$(a) = a + 1$.
 -/
 theorem succ_eq_add_one (a : N) : succ(a) = a + 1 :=
 begin

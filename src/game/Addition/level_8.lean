@@ -5,23 +5,29 @@ import game.Addition.level_7 --hide
 namespace N -- hide
 
 /-
-Das Ziel dieses Levels ist $a+b+c=a+c+b$. Das sieht vielleicht erstmal danach aus,
-dass du nur `add_comm,` anwenden muss. Aber LEAN ist links-assoziativ. Das bedeutet,
-dass diese Aussage mit Klammern so geschrieben werden kann: $(a+b)+c=(a+c)+b$. Um
-dieses Lemma zu zeigen, wirst du also auch die Assoziativität verwenden. Dieses
-Lemma wird dir in zukünftigen Beweisen etwas Schreibarbeit sparen.
+Das Ziel dieses Levels ist für natürliche Zahlen $a,b,c$ $a+b+c=a+c+b$ zu zeigen.
+Das sieht vielleicht erstmal danach aus, dass du nur `add_comm,` anwenden muss. 
+Aber LEAN ist links-assoziativ. Das bedeutet, dass diese Aussage mit Klammern so 
+geschrieben werden kann: $(a+b)+c=(a+c)+b$. Um dieses Lemma zu zeigen, wirst du also 
+auch die Assoziativität verwenden. Dieses Lemma wird dir in zukünftigen Beweisen etwas 
+Schreibarbeit sparen.
 
-Noch eine Bemerkung: manchmal gibt es mehr als eine Stelle, an der `rw` etwas
-anstellen kann. Wenn du nichts Weiteres spezifizierst, wird LEAN die erste dieser
-Stellen heraussuchen. Wenn du zum Beispiel in diesem Level damit anfangen möchtest,
-dass du auf der rechten Seite $a+c+b$ zu $a+(c+b)$ umschreibst, wird das nicht mit
-dem Befehl `rw add_assoc,` klappen. Dies wird nämlich in der linken Seite der Gleichung
-die Assoziativität ausnutzen. Du kannst LEAN konkret angeben an welcher Stelle du die
-Änderung möchtest, in diesem Fall: `rw add_assoc a c b,`.
+In diesem Level werden dir die Beweischritte "in normaler Sprache" vorgegeben, die du
+dann in LEAN-Spache umsetzten kannst. Der Beweis besteht aus drei Schritten. Wir empfehlen
+bei jedem Schritt zu spezifizieren, auf welchen Teil sich rw beziehen soll.
+
+1. Wende die Assoziativität der Addition an, um in der linken Seite des Ausdrucks 
+umzuklammern.  Der Beweiszustand a + b + c = a + c + b soll zu a + (b + c) = a + c + b werden.
+2. Wende die Kommutativität der Addition an, um das b und c in der linken Seite des
+Ausdrucks umzuklammern. Der Beweiszustand a + (b + c) = a + c + b soll zu 
+a + (c + b) = a + c + b werden.
+3. Wende die Assozitivität der Addition nun rückwerts an, um in der linken Seite des
+Ausdrucks umzuklammern. Der Beweiszustand a + (c + b) = a + c + b soll zu 
+a + c + b = a + c + b werden und somit den Beweis lösen.
 -/
 
 /- Theorem
-$a+b+c=a+c+b$
+Seien $a, b, c \in \mathbb{N}$. Dann ist $a+b+c=a+c+b$.
 -/
 theorem add_right_comm (a b c: N) : a + b + c = a + c + b :=
 begin

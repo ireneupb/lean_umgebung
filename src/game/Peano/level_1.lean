@@ -1,14 +1,12 @@
 -- Level name : Die Peano Axiome
 
--- namespace nat -- hide 
-
 import mynat.definition -- hide
 namespace N -- hide
 
 /-
 Die natürlichen Zahlen können mit Peanos Axiomen eindeutig definiert werden. Die
 Axiome lauten wie folgt:
-- $A_1$: $0$ (in LEAN: `zero`) ist eine natürliche Zahl 
+- $A_1$: $0$ (in LEAN entweder `0` oder `zero`) ist eine natürliche Zahl 
 - $A_2$: Es gibt eine injektive Abbildung `succ`$: \mathbb{N} \to \mathbb{N}$, die für jede natürliche Zahl ihren Nachfolger angibt.
 - $A_3$: $0$ ist nicht der Nachfolger einer natürlichen Zahl.
 - $A_4$: Das Prinzip der Induktion: Enthält eine Menge die $0$ und für jede enthaltene natürliche Zahl $n$ auch ihren Nachfolger `succ`$(n)$, so enthält sie alle natürlichen Zahlen.
@@ -29,7 +27,8 @@ Diese Aussage kann man direkt zeigen, indem man die gegebene Hypothese `succ(a)=
 zu zeigende Aussage `succ(succ(a))=succ(b)` einsetzt und somit `succ(b)=succ(b)` erhält.
 
 Wir schauen uns nun an, wie das in LEAN funktioniert. Wir werden mit der Klasse
-N arbeiten, die genau nach den Axiomen von Peano definiert ist.
+N arbeiten, die genau die Menge der natürlichen Zahlen definiert nach den Peano-Axiomen 
+ist.
 -/
 
 /- Hint : Klicke hier, um die Definition der natürlichen Zahlen in LEAN zu sehen. Du musst diesen Code nicht zu 100% verstehen.
@@ -73,11 +72,12 @@ Aussage `h`. In der letzten Zeile, nach dem `⊢` Symbol, steht immer das aktuel
 also das, was gerade zu  zeigen ist. Wenn man am Anfang des Beweises steht, ist das 
 noch die ganze Aussage des Lemmas. Nachdem man `rw h,` eingibt, sieht man, dass sich 
 der Zustand ändert. In diesem Fall kommt die Nachricht `Proof complete!`, die uns 
-angibt, dass wir fertig sind. In längeren Aufgaben würde hier das neue Ziel stehen.
+angibt, dass wir fertig sind. In längeren Aufgaben würde hier das neue Ziel stehen. Ein
+Beweis ist dann zuende, wenn eine Aussage der Form "a=a" als Beweiszustand entsteht.
 -/
 
 /- Theorem
-Falls `succ`$(a) = b$, dann `succ`$($`succ`$(a)) = $`succ`$(b)$
+Seien $a, b \in \mathbb{N}$. Falls `succ`$(a) = b$, dann `succ`$($`succ`$(a)) = $`succ`$(b)$.
 -/
 theorem succ_succ (a b : N) (h : succ(a) = b): succ(succ(a)) = succ(b) :=
 begin
@@ -97,10 +97,30 @@ Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
 Bei folgendem Zustand:
 ```
 x : N
+h : x + 0 = 0
 ⊢ succ (x + 0) = succ (x)
 ```
-wird `rw add_zero,` das Ziel umändern zu `⊢ succ x = succ (x)`,
+wird `rw h,` das Ziel umändern zu `⊢ succ (x) = succ (x)`,
 und damit den Beweis abschließen.
+## Erweitert
+1. Man kann einen konkreten Teil des Zustands konkretisieren,
+um vorzugeben wo Lean `rw` anwenden soll. Bei dem Zustand:
+```
+x y : N
+h : x + 1 = y
+⊢ x + 0 + 1 = y + 0
+```
+wird `rw add_zero x,` den Zustand zu `x + 1 = y + 0` ändern und
+`rw add_zero y,` zu `x + 0 + 1 = y`
+2. Man kann rw auch auf gegebene Hypothesen anwenden statt auf
+den Beweiszustand.Bei dem Zustand:
+```
+x : N
+h : x + 0 = 3
+⊢ x = 3 + 0
+```
+wird `rw add_zero at h,` den Beweiszustand nicht ändern, dafür aber
+`h` umformen zu `h : x = 3`
 -/
 
 end N -- hide
