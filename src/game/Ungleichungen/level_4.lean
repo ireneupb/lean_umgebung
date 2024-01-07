@@ -8,7 +8,7 @@ namespace nat -- hide
 In diesem Level werden wir lernen, wie wir ein Beweisziel, welches mit einem
 Negationszeichen anfängt weiter vereinfachen. In deisem Level zum Beispiel ist
 das Beweisziel `¬ a > 4`. Wir wissen, dass das equivalent zu `a ≤ 4` ist. Damit
-Lean diese Umformung macht verwenden wir die Tactic `push_neg,`. Probier es zu
+LEAN diese Umformung macht verwenden wir die Tactic `push_neg,`. Probier es zu
 Beginn dieses Beweises aus.
 -/
 
@@ -19,9 +19,12 @@ theorem neg_gr_vier (a : ℕ) (h : a ≤ 4) : ¬ a > 4 :=
 begin
 push_neg,
 exact h,
+
+
+
 end
 
-/- Wie schließ ich nochmal ein Beweisziel das gleich zu einer der gegebenen Aussagen ist?
+/- Wie schließ man nochmal ein Beweisziel das gleich zu einer der gegebenen Aussagen ist?
 Schau dir dazu die Tactic `exact` an.
 -/
 

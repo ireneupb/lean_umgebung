@@ -10,7 +10,7 @@ Addition und Multiplikation vorkommen. Wir werden hier die "Linksdistributivitä
 zeigen, also $c*(a+b)=c*a+c*b$, daraus folgt aber nicht direkt $(a+b)*c=a*c+b*c$.
 
 In diesem Level startest du den Beweis selber. Denk daran, dass bei Indukzion
-oft der Schritt `rw N_zero_eq_zero,` nötig ist. Wenn du nicht weiterkommst sind
+oft der Schritt `rw [N_zero_eq_zero],` nötig ist. Wenn du nicht weiterkommst sind
 unter der Aufgabe Hinweise.
 -/
 
@@ -20,15 +20,15 @@ Seien $a, b, c \in \mathbb{N}$. Dann ist $c * (a + b) = c * a + c * b$.
 theorem left_distrib (a b c : N) : c * (a + b) = c * a + c * b :=
 begin
 induction b with d hd,
-{rw N_zero_eq_zero,
-rw add_zero,
-rw mul_zero,
-rw add_zero,},
-{rw add_succ,
-rw mul_succ,
-rw hd,
-rw mul_succ,
-rw add_assoc,},
+{[rw N_zero_eq_zero],
+rw [add_zero],
+rw [mul_zero],
+rw [add_zero],},
+{rw [add_succ],
+rw [mul_succ],
+rw [hd],
+rw [mul_succ],
+rw [add_assoc],},
 
 
 
@@ -37,7 +37,7 @@ end
 /- Hint :  Hinweis: Beweisstruktur
 ```
 induction Induktionsvariable with d hd,
-{rw N_zero_eq_zero,
+{rw [N_zero_eq_zero],
 sorry,},
 {sorry,},
 ```
@@ -49,7 +49,7 @@ Verwende `b` als Induktionsvariable.
 
 /- Hint :  Hinweis: Benötigte Tactics und Sätze
 Du benötigst in diesem Beweis nur die `induction` und `rw` tactics. `rw` wendest du
-auf die Induktionshypothese und folgende Sätze an: `N_zero_eq_zero`, `add_zero`, `mul_zero`,
+auf die Induktionsvoraussetzung und folgende Sätze an: `N_zero_eq_zero`, `add_zero`, `mul_zero`,
 `add_succ`, `mul_succ`, `add_assoc`. 
 -/
 

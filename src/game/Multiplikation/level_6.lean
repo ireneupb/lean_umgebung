@@ -42,8 +42,11 @@ theorem mul_gerade (a b : ℕ) (hger : ∃ c : ℕ, a=2*c) : ∃ d : ℕ, a*b = 
 begin
   obtain ⟨c, ager⟩ := hger,
   use [c*b],
-  rw ager,
-  rw mul_assoc,
+  rw [ager],
+  rw [mul_assoc],
+
+
+  
 end
 
 /- Tactic : obtain

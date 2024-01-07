@@ -23,20 +23,12 @@ Wir haben die Addition noch nicht definiert. Außerdem ist `succ`$(n)=n+1$ mit $
 Aus diesen Axiomen werden wir alles herleiten und beweisen, was wir in dieser Einheit
 vorhaben. In diesem Level werden wir folgende Aussage zur Funktion `succ` zeigen: Für die natürlichen Zahlen a und b gilt: falls `succ(a)=b` dann `succ(succ(a))=succ(b)`.
 
-Diese Aussage kann man direkt zeigen, indem man die gegebene Hypothese `succ(a)=b` in die
+Diese Aussage kann man direkt zeigen, indem man die gegebene Aussage `succ(a)=b` in die
 zu zeigende Aussage `succ(succ(a))=succ(b)` einsetzt und somit `succ(b)=succ(b)` erhält.
 
 Wir schauen uns nun an, wie das in LEAN funktioniert. Wir werden mit der Klasse
 N arbeiten, die genau die Menge der natürlichen Zahlen definiert nach den Peano-Axiomen 
 ist.
--/
-
-/- Hint : Klicke hier, um die Definition der natürlichen Zahlen in LEAN zu sehen. Du musst diesen Code nicht zu 100% verstehen.
-`inductive N` → $A_4$ <br>
-`| zero : N` → $A_1$ <br>
-`| succ (n : N) : N` → $A_2$ <br>
-`lemma succ_inj {m n : N} (h : succ m = succ n) : m = n := by cases h; refl` → $A_2$ <br>
-`lemma zero_ne_succ (m : N) : (zero : N) ≠ succ m := λ h, by cases h` → $A_3$
 -/
 
 /-
@@ -59,9 +51,9 @@ Erstes das `sorry`, um mit dem Beweis zu starten.
 
 Wir haben oben bereits beschrieben, wie der Beweis mathematisch funktioniert. Wie 
 übertragen wir die Idee in LEAN? Dazu gibt es den `rw` (rewrite) Befehl. Wenn `h` eine
-Aussage ist (z.B. $a=b$), dann bewirkt `rw h,`, dass LEAN die Aussage `h` in der zu 
+Aussage ist (z.B. $a=b$), dann bewirkt `rw [h],`, dass LEAN die Aussage `h` in der zu 
 zeigenden Aussage einsetzt (im Beispiel würde also in der zu zeigenden Aussage jedes $a$
-mit einem $b$ ersetzt werden). Probiere also den Befehl `rw h,` aus. Das Komma am Ende 
+mit einem $b$ ersetzt werden). Probiere also den Befehl `rw [h],` aus. Das Komma am Ende 
 jedes LEAN-Befehls ist sehr wichtig. Wenn du Fehlermeldungen bekommst, die du nicht
 verstehst, überprüfe deinen Code auf fehlende Kommata.
 
@@ -70,7 +62,7 @@ Hier gibt LEAN dynamisches Feedback. Bis auf die letzte Zeile steht hier immer w
 gegeben ist, in diesem Fall zum Beispiel, dass a und b natürliche Zahlen sind und die
 Aussage `h`. In der letzten Zeile, nach dem `⊢` Symbol, steht immer das aktuelle Ziel, 
 also das, was gerade zu  zeigen ist. Wenn man am Anfang des Beweises steht, ist das 
-noch die ganze Aussage des Lemmas. Nachdem man `rw h,` eingibt, sieht man, dass sich 
+noch die ganze Aussage des Lemmas. Nachdem man `rw [h],` eingibt, sieht man, dass sich 
 der Zustand ändert. In diesem Fall kommt die Nachricht `Proof complete!`, die uns 
 angibt, dass wir fertig sind. In längeren Aufgaben würde hier das neue Ziel stehen. Ein
 Beweis ist dann zuende, wenn eine Aussage der Form "a=a" als Beweiszustand entsteht.
@@ -81,7 +73,8 @@ Seien $a, b \in \mathbb{N}$. Falls `succ`$(a) = b$, dann `succ`$($`succ`$(a)) = 
 -/
 theorem succ_succ (a b : N) (h : succ(a) = b): succ(succ(a)) = succ(b) :=
 begin
-rw h,
+rw [h],
+
 
 
 
@@ -90,9 +83,9 @@ end
 /- Tactic : rw
 ## Anleitung
 Wenn `h` eine Aussage des Typs `X = Y` ist, dann wird
-`rw h,` alle `X` in der zu beweisenden Aussage durch
+`rw [h],` alle `X` in der zu beweisenden Aussage durch
 `Y` austauschen.
-Um alle `Y` durch `X` zu ersetzten verwendet man `rw ← h`.
+Um alle `Y` durch `X` zu ersetzten verwendet man `rw [← h]`.
 ## Beispiel
 Bei folgendem Zustand:
 ```
@@ -100,26 +93,26 @@ x : N
 h : x + 0 = 0
 ⊢ succ (x + 0) = succ (x)
 ```
-wird `rw h,` das Ziel umändern zu `⊢ succ (x) = succ (x)`,
+wird `rw [h],` das Ziel umändern zu `⊢ succ (x) = succ (x)`,
 und damit den Beweis abschließen.
 ## Erweitert
 1. Man kann einen konkreten Teil des Zustands konkretisieren,
-um vorzugeben wo Lean `rw` anwenden soll. Bei dem Zustand:
+um vorzugeben wo LEAN `rw` anwenden soll. Bei dem Zustand:
 ```
 x y : N
 h : x + 1 = y
 ⊢ x + 0 + 1 = y + 0
 ```
-wird `rw add_zero x,` den Zustand zu `x + 1 = y + 0` ändern und
-`rw add_zero y,` zu `x + 0 + 1 = y`
-2. Man kann rw auch auf gegebene Hypothesen anwenden statt auf
+wird `rw [add_zero(x)],` den Zustand zu `x + 1 = y + 0` ändern und
+`rw [add_zero(y)],` zu `x + 0 + 1 = y`
+2. Man kann rw auch auf gegebene Aussagen anwenden statt auf
 den Beweiszustand.Bei dem Zustand:
 ```
 x : N
 h : x + 0 = 3
 ⊢ x = 3 + 0
 ```
-wird `rw add_zero at h,` den Beweiszustand nicht ändern, dafür aber
+wird `rw [add_zero] at h,` den Beweiszustand nicht ändern, dafür aber
 `h` umformen zu `h : x = 3`
 -/
 

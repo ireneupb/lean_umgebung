@@ -10,22 +10,22 @@ nicht der Wert von $a$ gesucht, sonder von $a+3$. Das schafft zwar `linarith`
 auch direkt (probier es gerne aus!), wir wollen aber die Gelegenheit nutzen
 um zu erklären, wie man sich in Beweisen Zwischenziele setzen kann.
 
-In diesem Beweis könnte es zum Beispiel sinnvoll sein, die Hypothese `ha : a=2`
-zu beweisen und diese zu verwenden, `a` mit `rw ha,` in den Beweiszustand einzusetzen.
-Um sich eine Hypothese als Zwischenziel vorzunehmen verwendet man die Tactic `have`.
+In diesem Beweis könnte es zum Beispiel sinnvoll sein, die Aussage `ha : a=2`
+zu beweisen und diese zu verwenden, um `a` mit `rw [ha],` in das Beweisziel einzusetzen.
+Um sich eine Aussage als Zwischenziel vorzunehmen verwendet man die Tactic `have`.
 Dazu schreibt man:
 ```
 have ha : a = 2,
 {...},
 ```
-Man führt die Hypothese ha ein, die im weiterem Verlauf verwendet werden kann. Dazu muss
+Man führt die Aussage ha ein, die im weiterem Verlauf verwendet werden kann. Dazu muss
 sie aber in den Klammern bewiesen werden.
 
 In diesem Level könnte der Beweis dann so aussehen:
 ```
 have ha : a = 2,
 {sorry,}, -- Beweise ha, du kannst dazu linarith verwenden
-sorry,    -- Beweise nun mithilfe von ha den Beweiszustand
+sorry,    -- Beweise nun mithilfe von ha das Beweisziel
 ```
 Kopiere diesen Code und ergänze die beiden sorry.
 -/
@@ -37,14 +37,15 @@ theorem lin_gl_zwischenschritt (a : ℕ) (h : a + 2 = 4): a + 3=5 :=
 begin
 have ha : a = 2,
 {linarith,},
-rw ha,
+rw [ha],
+
 
 
 end
 
 /- Tactic : have
 ## Anleitung
-Die Taktik have in Lean erlaubt es, einen Zwischenschritt während eines Beweises 
+Die Taktik have in LEAN erlaubt es, einen Zwischenschritt während eines Beweises 
 zu definieren, welches bewiesen werden soll um im restlichem Beweis verwendet
 zu werden.
 ## Beispiel

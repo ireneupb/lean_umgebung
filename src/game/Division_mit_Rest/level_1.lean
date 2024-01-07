@@ -32,7 +32,8 @@ induction n with d hd,
 { sorry, },
 { by_cases hq : ∃ q, d.succ = m*q,
   { sorry, },
-  { sorry, }
+  { sorry, },
+},
 ```
 -/
 
@@ -49,7 +50,11 @@ begin
       use [q', 0],
       simp [hq'],},
     { use [0, d.succ],
-      simp, } }
+      simp, } },
+
+
+
+
 end
 
 /- Tactic : by_cases

@@ -41,6 +41,9 @@ begin
 split,
 {linarith,},
 {linarith,},
+
+
+
 end
 
 /- Du weißt nicht wie du die Beweise an der Stelle der `sorry` führen sollst?

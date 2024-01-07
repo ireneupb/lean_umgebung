@@ -29,7 +29,7 @@ Dabei kann man nach `by_contra` einen Namen (hier `hex`) für die Widerspruchsan
 In diesem Level werden wir mit einem Widerspruchsbeweis zeigen, dass es keine natürliche
 Zahl $a<4$ gibt, die ein echtes Vielfaches von $4$ ist.
 
-Um den Lean beweis zu schreiben, kannst du diesen Beweis verwenden:
+Um den LEAN beweis zu schreiben, kannst du diesen Beweis verwenden:
 1. Widerspruchsannahme: Angenommen es gibt $a, b \in \mathbb{N}$ mit $b>0$, $a<4$ und $a=b*4$.
 2. Seien nun $a, b \in \mathbb{N}$ sodass $b>0$, $a<4$ und $a=b*4$.
 3. Wir geben der Aussage $b>0$ den Namen hb, der Aussage $a<4$ den Namen ha und der Aussage
@@ -50,9 +50,13 @@ obtain ⟨n, m, hnm⟩ := h_contr,
 cases hnm with hm hrest,
 cases hrest with hn hnm,
 have n_bigger_four : n ≥ 4,
-{rw hnm,
+{rw [hnm],
 linarith,},
 linarith,
+
+
+
+
 end
 
 

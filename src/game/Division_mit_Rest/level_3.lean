@@ -76,13 +76,19 @@ begin
       use [q, r + 1],
       split,
       { -- Zeige: d+1 = m * q + (r + 1)
-        rw hq,
-        rw add_succ, },
+        rw [hq],
+        rw [add_succ], },
       { -- Zeige r kleiner m
         apply lemma_div m d q r hr hq hq2,
         },
     },
   },
+
+
+
+
+
+  
 end
 
 /- Tactic : apply

@@ -29,7 +29,7 @@ hd : 2 * d = d + d
 ## Bemerkung
 Für LEAN soll der Induktionsanfang für `zero` gezeigt werden. Wir arbeiten
 aber mit der Darstellung `0` der Zahl Null. Deswegen müssen wir im Induktionsanfang
-die Darstellung der Null mit `rw N_zero_eq_zero,` von `zero` zu `0` ändern.
+die Darstellung der Null mit `rw [N_zero_eq_zero],` von `zero` zu `0` ändern.
 -/
 
 /-
@@ -58,7 +58,7 @@ den Klammern gehört wie immer ein ",".
 
 ACHTUNG: Für LEAN soll der Induktionsanfang für `zero` gezeigt werden. Wir arbeiten
 aber mit der Darstellung `0` der Zahl Null. Deswegen müssen wir im Induktionsanfang
-die Darstellung der Null mit `rw N_zero_eq_zero,` von `zero` zu `0` ändern.
+die Darstellung der Null mit `rw [N_zero_eq_zero],` von `zero` zu `0` ändern.
 -/
 
 /- Theorem
@@ -67,10 +67,10 @@ Sei $a \in \mathbb{N}$. Dann ist $0+a=a$.
 theorem zero_add (a : N) : 0 + a = a :=
 begin
   induction a with d hd,
-  {rw N_zero_eq_zero,
-   rw add_zero,},
-  {rw add_succ,
-  rw hd,},
+  {rw [N_zero_eq_zero],
+   rw [add_zero],},
+  {rw [add_succ],
+  rw [hd],},
 
 
 

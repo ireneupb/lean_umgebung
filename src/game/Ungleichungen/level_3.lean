@@ -19,6 +19,9 @@ begin
   split,
   {linarith,},
   {linarith,},
+
+
+  
 end
 
 /- Wie war das nochmal mit Beweiszielen die `∧` beinhalten?

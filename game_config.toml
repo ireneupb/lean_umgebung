@@ -46,7 +46,7 @@ levels = [
 ]
 
 [[worlds]]
-name = "Ungleichungen"
+name = "Ungleichungen und Gleichungen"
 id = 4
 parents = [3]
 levels = [

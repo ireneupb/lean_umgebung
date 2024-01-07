@@ -17,12 +17,12 @@ dann in LEAN-Spache umsetzten kannst. Der Beweis besteht aus drei Schritten. Wir
 bei jedem Schritt zu spezifizieren, auf welchen Teil sich rw beziehen soll.
 
 1. Wende die Assoziativität der Addition an, um in der linken Seite des Ausdrucks 
-umzuklammern.  Der Beweiszustand a + b + c = a + c + b soll zu a + (b + c) = a + c + b werden.
+umzuklammern. Das Beweisziel a + b + c = a + c + b soll zu a + (b + c) = a + c + b werden.
 2. Wende die Kommutativität der Addition an, um das b und c in der linken Seite des
-Ausdrucks umzuklammern. Der Beweiszustand a + (b + c) = a + c + b soll zu 
+Ausdrucks umzuklammern. Das Beweisziel a + (b + c) = a + c + b soll zu 
 a + (c + b) = a + c + b werden.
 3. Wende die Assozitivität der Addition nun rückwerts an, um in der linken Seite des
-Ausdrucks umzuklammern. Der Beweiszustand a + (c + b) = a + c + b soll zu 
+Ausdrucks umzuklammern. Das Beweisziel a + (c + b) = a + c + b soll zu 
 a + c + b = a + c + b werden und somit den Beweis lösen.
 -/
 
@@ -31,9 +31,9 @@ Seien $a, b, c \in \mathbb{N}$. Dann ist $a+b+c=a+c+b$.
 -/
 theorem add_right_comm (a b c: N) : a + b + c = a + c + b :=
 begin
-rw add_assoc a b c,
-rw add_comm b c,
-rw ← add_assoc a c b,
+rw [add_assoc(a)(b)(c)],
+rw [add_comm(b)(c)],
+rw [← add_assoc(a)(c)(b)],
 
 
 

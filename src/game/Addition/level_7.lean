@@ -13,12 +13,12 @@ fast richtigen Beweis korrigieren.
 Kopiere dazu folgenden Beweis mit Fehler in die Aufgabe:
 ```
 induction b with d hd,
-{rw N_zero_eq_zero,
-rw add_zero a,
-rw zero_add a,},
-{rw add_succ a,
-rw hd,
-rw succ_add b,},
+{rw [N_zero_eq_zero],
+rw [add_zero(a)],
+rw [zero_add(a),],},
+{rw [add_succ(a)],
+rw [hd],
+rw [succ_add(b)],},
 ```
 Klicke dich durch den Beweis und achte dabei auf den Beweiszustand und wie er sich
 mit den unterschiedlichen Beweisschritten ändert. Zu korrigieren ist der Induktionsschritt. 
@@ -33,12 +33,12 @@ Seien $a, b \in \mathbb{N}$. Dann ist a+b=b+a.
 theorem add_comm (a b: N) : a + b = b + a :=
 begin
   induction b with d hd,
-  {rw N_zero_eq_zero,
-  rw add_zero a,
-  rw zero_add a,},
-  {rw add_succ a,
-  rw hd,
-  rw succ_add d,},
+  {rw [N_zero_eq_zero],
+  rw [add_zero(a)],
+  rw [zero_add(a)],},
+  {rw [add_succ(a)],
+  rw [hd],
+  rw [succ_add(d)],},
 
 
   

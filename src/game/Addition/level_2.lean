@@ -15,8 +15,8 @@ Sei $a \in \mathbb{N}$. Dann ist $a+$`succ`$(0)=$`succ`$(a)$
 -/
 theorem add_succ_zero (a : N) : a + succ(0) = succ(a) :=
 begin
-  rw add_succ,
-  rw add_zero,
+  rw [add_succ],
+  rw [add_zero],
 
 
   

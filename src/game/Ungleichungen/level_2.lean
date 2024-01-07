@@ -26,6 +26,9 @@ theorem Pythagoreisches_Tripel : ∃ a b c : ℕ, a*a+b*b=c*c :=
 begin
   use [3, 4, 5],
   linarith,
+
+
+  
 end
 
 /- Hint: Kommst du nicht weiter?

@@ -40,13 +40,13 @@ und nachvollziehen. Dazu kannst du den Beweis direkt in das Feld kopieren:
   {exact le_antisymm hr_succ_le_m h_contr,}, 
   /- damit können wir zeigen, dass d+1=m*(q+1) ist -/
   have d_mult_q : d.succ = m*(q+1),
-  {rw succ_eq_add_one,
+  {rw [succ_eq_add_one],
   linarith,
   },
   /- Um nun einen Widerspruch herzustellen müssen wir dies noch
   als Existenzaussage formulieren. -/
   have h_eq : ∃ (q : ℕ), d.succ = m * q := ⟨q+1, d_mult_q⟩,
-  /- Wir haven nun zwei widersprüchliche Aussagen im Beweiszustand.
+  /- Wir haben nun zwei widersprüchliche Aussagen im Beweiszustand.
   Mit contradiction kann der Widerspruchsbeweis beender werden. -/
   contradiction,
 ```
@@ -74,15 +74,18 @@ begin
   {exact le_antisymm hr_succ_le_m h_contr,}, 
   /- damit können wir zeigen, dass d+1=m*(q+1) ist -/
   have d_mult_q : d.succ = m*(q+1),
-  {rw succ_eq_add_one,
+  {rw [succ_eq_add_one],
   linarith,
   },
   /- Um nun einen Widerspruch herzustellen müssen wir dies noch
   als Existenzaussage formulieren. -/
   have h_eq : ∃ (q : ℕ), d.succ = m * q := ⟨q+1, d_mult_q⟩,
-  /- Wir haven nun zwei widersprüchliche Aussagen im Beweiszustand.
+  /- Wir haben nun zwei widersprüchliche Aussagen im Beweiszustand.
   Mit contradiction kann der Widerspruchsbeweis beender werden. -/
   contradiction,
+
+
+   
         
 end
 

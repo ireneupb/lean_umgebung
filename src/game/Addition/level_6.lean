@@ -15,9 +15,9 @@ unvollständigen Beweis vervollständigen.
 Kopiere dazu folgenden unvollständigen Beweis in die Aufgabe:
 ```
 induction b with d hd,
-  {rw N_zero_eq_zero,
-  rw add_zero,
-  rw add_zero,},
+  {rw [N_zero_eq_zero],
+  rw [add_zero],
+  rw [add_zero],},
   {sorry,},
 ```
 Klicke dich durch den Beweis und achte dabei auf den Beweiszustand und wie er sich
@@ -33,12 +33,12 @@ Seien $a, b \in \mathbb{N}$. Dann ist `succ`$(a)+b = $`succ`$(a+b)$.
 theorem succ_add (a b: N) : succ(a) + b = succ(a + b) :=
 begin
   induction b with d hd,
-  {rw N_zero_eq_zero,
-  rw add_zero,
-  rw add_zero,},
-  {rw add_succ,
-  rw hd,
-  rw add_succ,},
+  {rw [N_zero_eq_zero],
+  rw [add_zero],
+  rw [add_zero],},
+  {rw [add_succ],
+  rw [hd],
+  rw [add_succ],},
 
 
   
@@ -47,9 +47,9 @@ end
 /- Hint : Kommst du mit dem Induktionsschritt nicht weiter?
 Der Induktionschritt kann wiefolgt geführt werden:
 ```
-rw add_succ,
-rw hd,
-rw add_succ,
+rw [add_succ],
+rw [hd],
+rw [add_succ],
 ```
 Kopiere diesen Code und versuche ihn Schritt für Schritt nachzuvollziehen.
 -/

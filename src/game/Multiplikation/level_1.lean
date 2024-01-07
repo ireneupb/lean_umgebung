@@ -25,17 +25,6 @@ Die beiden Aussagen, die die Multiplikation definieren, sind in LEAN implementie
 haben jeweils den Namen `mul_zero` und `mul_succ`.
 -/
 
-/- Hint : Klicke hier, um die Definition der Multiplikation der natürlichen Zahlen in LEAN zu sehen. Du musst diesen Code nicht zu 100% verstehen.
-Definition: <br>
-`def mul : N → N → N` <br>
-`| a zero := zero` <br>
-`| a (succ d) := mul a d + a` <br>
-
-Den beiden definierenden Eigenschaften wird ein Namen gegeben: <br>
-`lemma mul_zero (a : N) : a * zero = zero := rfl` <br>
-`lemma mul_succ (a d : N) : a * (succ d) = a * d + a := rfl`
--/
-
 /-
 Wir werden in den nächsten Levels wieder grundlegende Rechenregeln beweisen. Dazu werden
 wir wieder ohne `linarith` arbeiten.
@@ -45,10 +34,10 @@ der Multiplikation sehr ähnlich zu der der Addition ist, wird auch dieser Bewei
 zu dem Beweis $0+a=0$ (Addition - Level 4) sein, du kannst diesen als Fahrplan verwenden:
 ```
 induction a with d hd,
-{rw N_zero_eq_zero,
-rw add_zero,},
-{rw add_succ,
-rw hd,},
+{rw [N_zero_eq_zero],
+rw [add_zero],},
+{rw [add_succ],
+rw [hd],},
 ```
 -/
 
@@ -58,11 +47,11 @@ Sei $a \in \mathbb{N}$. Dann ist $0*a=0$.
 theorem zero_mul (a: N) : 0*a = 0 :=
 begin
 induction a with d hd,
-{rw N_zero_eq_zero,
-rw mul_zero,},
-{rw mul_succ,
-rw hd,
-rw add_zero,},
+{rw [N_zero_eq_zero],
+rw [mul_zero],},
+{rw [mul_succ],
+rw [hd],
+rw [add_zero],},
 
 
 

@@ -25,32 +25,21 @@ Zahlen definiert.
 
 Die beiden Aussagen, die die Addition definieren, sind in LEAN implementiert und 
 haben jeweils den Namen `add_zero` und `add_succ`. Auch diese Aussagen können mit
-dem Befehl `rw` verwendet werden. `rw add_zero,` wandelt die Aussage `b+zero` in `b`
+dem Befehl `rw` verwendet werden. `rw [add_zero],` wandelt die Aussage `b+zero` in `b`
 um.
--/
-
-/- Hint : Klicke hier, um die Definition der Addition der natürlichen Zahlen in LEAN zu sehen. Du musst diesen Code nicht zu 100% verstehen.
-Definition: <br>
-`def add : N → N → N` <br>
-`| m 0 := m` <br>
-`| m (succ n) := succ (add m n)` <br>
-
-Den beiden definierenden Eigenschaften wird ein Namen gegeben: <br>
-`lemma add_zero (m : N) : m + zero = m := rfl` <br>
-`lemma add_succ (m n : N) : m + succ n = succ (m + n) := rfl`
 -/
 
 /-
 In diesem Level werden wir eine Aussage beweisen, in der die Addition der
 natürlichen Zahlen vorkommt. Die Aussage ist: Sei $a \in \mathbb{N}$. 
 Dann ist `succ`$(a)+0=$`succ`$(a+0)$. Wir können diese Aussage beweisen,
-indem wir die Aussage `add_zero` mit `rw` auf den Beweiszustand anwenden.
+indem wir die Aussage `add_zero` mit `rw` auf das Beweisziel anwenden.
 
 In dieser Aussage kommen zwei Ausrücke der Form $n+0$ vor. Man kann bei der
 Tactic rw konkretisieren, auf welche der beiden Stellen rw angewandt werden
-soll. Probiere in dem Beweis erst `rw add_zero a,` aus. Lösche diese Zeile
-und schreibe stattdessen `rw add_zero a.succ,`. Siehts du den unterschied im
-Beweiszustand?
+soll. Probiere in dem Beweis erst `rw [add_zero(a)],` aus. Lösche diese Zeile
+und schreibe stattdessen `rw [add_zero(a.succ)],`. Siehts du den unterschied im
+Beweisziel?
 -/
 
 /- Theorem
@@ -59,8 +48,11 @@ Sei $a \in \mathbb{N}$. Dann ist `succ`$(a)+0=$`succ`$(a+0)$.
 
 theorem succ_add_zero (a : N) : succ(a)+0=succ(a+0) :=
 begin
-rw add_zero a,
-rw add_zero a.succ,
+rw [add_zero(a)],
+rw [add_zero(a.succ)],
+
+
+
 end
 
 end N -- hide

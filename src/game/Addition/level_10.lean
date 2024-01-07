@@ -13,7 +13,7 @@ ja bereits bewiesen hast. Wir wollen diese aber nicht mehr Schritt
 für Schritt anwenden, sondern lineare Umformungen direkt LEAN überlassen.
 
 Dazu gibt es die Tactic `linarith`, die automatisch den Beweiszustand mithilfe
-der gegebenen Hypothesen und linearen arithmetischen Operationen vereinfacht.
+der gegebenen Aussagen und linearen arithmetischen Operationen vereinfacht.
 Du kannst diesen Beweis lösen, indem du einfach `linarith,` schreibst.
 -/
 
@@ -39,11 +39,15 @@ Sei $a \in \mathbb{N}$ mit $a+3=5$. Dann ist a=5.
 theorem lineare_gleichung (a : ℕ) (h : a+3=8) : a=5 :=
 begin
 linarith,
+
+
+
+
 end
 
 /- Tactic : linarith
 ## Anleitung
-Die Taktik `linarith` in Lean führt lineare Arithmetik,
+Die Taktik `linarith` in LEAN führt lineare Arithmetik,
 um automatisch Ungleichungen und Gleichungen in natürlichen Zahlen zu lösen
 ## Beispiel
 Bei folgendem Zustand:
