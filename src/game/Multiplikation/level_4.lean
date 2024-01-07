@@ -7,7 +7,7 @@ namespace N -- hide
 /-
 Das Distributivgesetz gibt uns an, wie wir mit Ausdrücken umgehen können, in denen
 Addition und Multiplikation vorkommen. Wir werden hier die "Linksdistributivität"
-zeigen, also $c⬝ $(a+b)=c⬝a+c⬝b$, daraus folgt aber nicht direkt $(a+b) ⬝ c=a⬝c+b⬝c$.
+zeigen, also $c⬝(a+b)=c⬝a+c⬝b$, daraus folgt aber nicht direkt $(a+b) ⬝ c=a⬝c+b⬝c$.
 
 In diesem Level startest du den Beweis selber. Wenn du nicht weiterkommst sind
 unter der Aufgabe Hinweise.

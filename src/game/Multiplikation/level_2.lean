@@ -5,7 +5,7 @@ import game.Multiplikation.level_1 --hide
 namespace N -- hide
 
 /-
-In diesem Level werden wir zeigen, dass $(a+1)⬝ b=a*b+b$, ist, oder mit `succ`
+In diesem Level werden wir zeigen, dass $(a+1)⬝ b=a⬝b+b$, ist, oder mit `succ`
 ausgedrückt: `succ(a) * b = a * b + b`. Du kannst diesen Beweis wieder über
 Induktion lösen.
 -/

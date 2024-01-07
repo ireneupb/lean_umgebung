@@ -52,7 +52,7 @@ Jetzt wo die Ziele jeweils nur einzelne Gleichungen sind kannst du `linarith` ve
 
 /- Tactic : split
 ## Anleitung
-Man kann aber ein Ziel, welches
+Man kann ein Ziel, welches
 ein "und" (`∧`) enthält mit der Tactic `split` in zwei Unterziele einteilen.
 ## Beispiel
 Folgendem Zustand:

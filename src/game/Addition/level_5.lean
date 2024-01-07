@@ -71,7 +71,7 @@ a : N,
 ⊢ a + 0 + 0 + 0 = a
 ```
 wird `repeat{rw [add_zero],},` dreimal den Befehl `rw [add_zero]` anwenden
-und somit den Beweiszustand zu `a=a` umformen und den Beweis schließen.
+und somit das Beweisziel zu `a=a` umformen und den Beweis schließen.
 -/
 
 end N -- hide

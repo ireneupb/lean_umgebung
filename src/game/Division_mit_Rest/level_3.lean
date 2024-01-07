@@ -99,7 +99,8 @@ mit `apply Satz Voraussetzungen,` das Ziel gelöst werden.
 ## Beispiel
 Wenn man zum Beispiel der Satz:
 ```
-theorem mul_gerade (a b : ℕ) (hger : ∃ c : ℕ, a=2*c) : ∃ d : ℕ, a*b = 2*d
+theorem mul_gerade (a b : ℕ) 
+(hger : ∃ c : ℕ, a=2*c) : ∃ d : ℕ, a*b = 2*d
 ```
 bereits bewiesen wurde und der Beweiszustand:
 ```

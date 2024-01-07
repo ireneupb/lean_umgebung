@@ -42,7 +42,7 @@ end
 
 /- Tactic : exact
 ## Anleitung
-Wenn `h` eine Aussage ist, die exakt gleich zu dem Beweiszustand
+Wenn `h` eine Aussage ist, die exakt gleich zu dem Beweisziel
 ist, dann löst `exact h` den Beweis.
 ## Beispiel
 Bei folgendem Zustand:

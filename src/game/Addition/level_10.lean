@@ -49,7 +49,7 @@ end
 
 /- Tactic : linarith
 ## Anleitung
-Die Taktik `linarith` in LEAN führt lineare Arithmetik,
+Die Taktik `linarith` in LEAN führt linear-arithmetische Operationen aus,
 um automatisch Ungleichungen und Gleichungen in natürlichen Zahlen zu lösen
 ## Beispiel
 Bei folgendem Zustand:
