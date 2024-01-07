@@ -14,13 +14,13 @@ a + b = 8
 b = 3
 ```
 Und zu zeigen ist, dass `a=5`. Auch hier könnte man direkt `linarith` anwenden
-und wäre fertig. Wir wollen uns aber die Frage stellen, wie wir eine Aussage
+und wäre fertig. Wir wollen uns aber die Frage stellen, wie man eine Aussage
 wie `h`, die ein "und" (`∧`) enthält in zwei Aussagen einteilen kann, damit man
 sie einzeln verwenden kann.
 
 Dazu gibt es die Tactic `cases`. Für eine Aussage `h : h1 ∧ h2` teilt `cases h with f g,`
 die Aussage auf, sodass man die Aussagen `f : h1` und `g : h2` erhält. Die Namen der
-neuen Aussagen können wir hier (`f g`) explizit angegeben werden oder werden ansonsten
+neuen Aussagen können wie hier (`f g`) explizit angegeben werden oder werden ansonsten
 von LEAN vergeben.
 
 Wir werden in diesem Level so vorgehen, dass wir die Aussage aufteilen um `b=3` in 

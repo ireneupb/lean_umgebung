@@ -7,7 +7,7 @@ import tactic -- hide
 namespace nat -- hide
 
 /-
-In diesem Level möchten wir ein letztes Gleichungssystem einführen.
+In diesem Level möchten wir ein letztes Gleichungssystem lösen.
 ```
 a+b+3=8
 a=b+1
@@ -46,7 +46,7 @@ split,
 
 end
 
-/- Du weißt nicht wie du die Beweise an der Stelle der `sorry` führen sollst?
+/- Hint : Du weißt nicht wie du die Beweise an der Stelle der `sorry` führen sollst?
 Jetzt wo die Ziele jeweils nur einzelne Gleichungen sind kannst du `linarith` verwenden.
 -/
 

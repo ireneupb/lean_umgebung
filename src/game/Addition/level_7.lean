@@ -14,7 +14,7 @@ Kopiere dazu folgenden Beweis mit Fehler in die Aufgabe:
 ```
 induction b with d hd,
 {rw [add_zero(a)],
-rw [zero_add(a),],},
+rw [zero_add(a)],},
 {rw [add_succ(a)],
 rw [hd],
 rw [succ_add(b)],},

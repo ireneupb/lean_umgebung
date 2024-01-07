@@ -6,10 +6,10 @@ namespace nat -- hide
 
 /-
 Nun hast du alle grundlegenden Eigenschaften der Addition gezeigt. In den
-verbleibenden Levels der "Addition" möchten wir nun ein bisschen "rechnen".
+verbleibenden Levels der "Addition" möchten wir nun ein bisschen rechnen.
 
 In diesem Level geht es konkret darum zu zeigen, dass es natürliche Zahlen
-$a$ und $b$ gibt, sodass a+b=10. Um das zu Beweisen muss man nur ein solches
+$a$ und $b$ gibt, sodass a+b=10. Um das zu beweisen muss man nur ein solches
 Paar an Zahlen angeben, zum Beispiel $4$ und $6$. In diesem Level werden wir
 die Tactic `use` kennenlernen, mit der man bei Existenzaussagen im Beweisziel
 konkrete Objekte übergeben kann. Wir führen `use` am Beispiel dieses Levels ein:
@@ -29,7 +29,7 @@ use [6],
 dann kannst du im Zwischenschritt nachvollziehen, was `use` verändert hat.
 -/
 
-/- Für welches $a \in \mathbb{N}$ kann der Beweis mit `repeat{use [a],},` gelöst werden?
+/- Hint : Für welches $a \in \mathbb{N}$ kann der Beweis mit `repeat{use [a],},` gelöst werden?
 Das funktioniert nur mit $a=5$. In diesem Fall wird dann zweimal `use [5],` ausgeführt,
 was analog zu `use [5,5],` ist. Probier es doch mal aus!
 -/

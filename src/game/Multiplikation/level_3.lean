@@ -24,7 +24,7 @@ Sprache aus? Formuliere dazu die Beweise add_comm und mul_comm schriftlich aus.
 -/
 
 /- Theorem
-Seien $a, b \in \mathbb{N}$. Dann ist a * b = b * a
+Seien $a, b \in \mathbb{N}$. Dann ist a ⬝ b = b ⬝ a
 -/
 theorem mul_comm (a b : N) : a * b = b * a :=
 begin

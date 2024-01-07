@@ -5,7 +5,7 @@ import game.Addition.level_7 --hide
 namespace N -- hide
 
 /-
-Das Ziel dieses Levels ist für natürliche Zahlen $a,b,c$ $a+b+c=a+c+b$ zu zeigen.
+Das Ziel dieses Levels ist für natürliche Zahlen $a,b,c$ zu zeigen, dass $a+b+c=a+c+b$ gilt.
 Das sieht vielleicht erstmal danach aus, dass du nur `add_comm,` anwenden muss. 
 Aber LEAN ist links-assoziativ. Das bedeutet, dass diese Aussage mit Klammern so 
 geschrieben werden kann: $(a+b)+c=(a+c)+b$. Um dieses Lemma zu zeigen, wirst du also 

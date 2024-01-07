@@ -48,7 +48,7 @@ musst und hier also `split` verwenden solltest.
 -/
 
 /- Theorem
-Seien $n,m ∈ \mathbb{N}$ mit $m>0$. Dann gilt: Es gibt $q,r\in \mathbb{N}$ mit $n = m*q + r$ und $r < m$.
+Seien $n,m ∈ \mathbb{N}$ mit $m>0$. Dann gilt: Es gibt $q,r\in \mathbb{N}$ mit $n = m⬝q + r$ und $r < m$.
 -/
 theorem exist_divisor_rest (m n : ℕ) (hm : m > 0) : ∃ q r : ℕ, n = m * q + r ∧ r < m :=
 begin

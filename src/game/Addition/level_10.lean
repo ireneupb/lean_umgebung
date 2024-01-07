@@ -19,6 +19,7 @@ Du kannst diesen Beweis lösen, indem du einfach `linarith,` schreibst.
 
 /- Hint : Ohne `linarith` wäre der Beweis aufwändig.
 Wir würden folgende Umformungen an `h` machen:
+```
 a+3=8
 a+succ(2)=8
 succ(a+2)=8
@@ -31,6 +32,7 @@ succ(succ(succ(a)))=succ(7)
 succ(succ(succ(a)))=succ(succ(6))
 succ(succ(succ(a)))=succ(succ(succ(5)))
 a = 5
+```
 -/
 
 /- Theorem

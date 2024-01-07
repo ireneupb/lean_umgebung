@@ -25,10 +25,10 @@ das `d.succ` kein Vielfaches von `m` ist, also:
 hq' : ¬ ∃ (q':ℕ), d.succ=m*q'
 ```
 
-In diesem Level musst du den Beweus nicht selber machen aber solltest ihn lesen
+In diesem Level musst du den Beweis nicht selber machen aber solltest ihn lesen
 und nachvollziehen. Dazu kannst du den Beweis direkt in das Feld kopieren:
 ```
-/- zuerst zeigen wir, dass r+1 ≤ m (da r < m) -/
+  /- zuerst zeigen wir, dass r+1 ≤ m (da r < m) -/
   have hr_succ_le_m : r + 1 ≤ m,
   { exact succ_le_of_lt hr, },
   /- nun führen wir einen Widerspruchbeweis. Wenn wir nämlich annehmen,
@@ -52,13 +52,13 @@ und nachvollziehen. Dazu kannst du den Beweis direkt in das Feld kopieren:
 ```
 Die Kommentare führen dich durch den Beweis. Es werden zwei Sätze verwendet,
 die du nicht kennst. Hier ist ihre Bedeutung:
-`succ_le_of_lt {a b : ℕ} (h : a < b) : succ a ≤ b` 
-`le_antisymm : ∀ {a b : ℕ}, (a ≤ b ∧ b ≤ a) → a = b`
+```succ_le_of_lt {a b : ℕ} (h : a < b) : succ a ≤ b
+le_antisymm : ∀ {a b : ℕ}, (a ≤ b ∧ b ≤ a) → a = b```
 -/
 
 /- Theorem
-Seien $m,d,q,r ∈ \mathbb{N}$ mit $r < m$ und $d=m*q+r$. Falls es kein $q' ∈ \mathbb{N}$ gibt
-sodass $d+1=m*q$, dann gilt, dass $r+1 < m$
+Seien $m,d,q,r ∈ \mathbb{N}$ mit $r < m$ und $d=m⬝q+r$. Falls es kein $q' ∈ \mathbb{N}$ gibt
+sodass $d+1=m⬝q$, dann gilt, dass $r+1 < m$
 -/
 theorem lemma_div (m d q r : ℕ) (hr : r < m) (hq : d = m*q+r) (hq' : ¬ ∃ (q':ℕ), d.succ=m*q') : r+1<m :=
 begin

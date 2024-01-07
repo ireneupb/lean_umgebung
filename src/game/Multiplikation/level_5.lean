@@ -21,7 +21,7 @@ Definition der Multiplikation von der Addition abhängt (`a*succ(d)=a*d+a`).
 -/
 
 /- Theorem
-Seien $a, b, c \in \mathbb{N}$. Dann ist $(a * b) * c = a * (b * c)$.
+Seien $a, b, c \in \mathbb{N}$. Dann ist $(a ⬝ b) ⬝ c = a ⬝ (b ⬝ c)$.
 -/
 theorem mul_assoc (a b c : N) : (a * b) * c = a * (b * c) :=
 begin

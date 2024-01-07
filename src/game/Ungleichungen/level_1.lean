@@ -6,7 +6,7 @@ namespace nat -- hide
 
 /-
 Nun werden wir uns mit Ungleichungen auseinandersetzen. Dazu wird als erstes $≤$
-definiert. Und zwar ist für natürliche Zahlen $a$ und $b$ $a≤b$ genau dann, wenn es
+definiert. Und zwar ist für natürliche Zahlen $a$ und $b$ genau dann $a≤b$, wenn es
 eine natürliche Zahl $c$ gibt, sodass $b=a+c$. Dieser Zusammenhang ist in LEAN
 unter dem Satz `le_iff_exists_add` (`le` steht für "less or equal") gespeichert:
 

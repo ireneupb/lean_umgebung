@@ -15,8 +15,8 @@ a * succ(b) = a*d+a
 /-
 Man kann auch die Multiplikation zweier natürlichen Zahlen rekursiv anhand der 
 Peano-Axiome definieren.
-- Für $a \in \mathbb{N}$ sei $a*0=0$
-- Für $a,d \in \mathbb{N}$ sei $a* $`succ`$(d) = a*d+a$
+- Für $a \in \mathbb{N}$ sei $a⬝0=0$
+- Für $a,d \in \mathbb{N}$ sei $a⬝ $`succ`$(d) = a*d+a$
 
 Nach dem Prinzip der Induktion ist dann die Multiplikation für alle Paare von
 natürlichen Zahlen definiert.
@@ -41,7 +41,7 @@ rw [hd],},
 -/
 
 /- Theorem
-Sei $a \in \mathbb{N}$. Dann ist $0*a=0$.
+Sei $a \in \mathbb{N}$. Dann ist $0⬝a=0$.
 -/
 theorem zero_mul (a: N) : zero*a = zero :=
 begin
