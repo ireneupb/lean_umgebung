@@ -14,10 +14,9 @@ Als erstes kannst du dazu folgenden Beweis als Lösung reikopieren und ihn
 Schritt für Schritt nachvollziehen.
 ```
 induction c with d hd,
-  {rw [N_zero_eq_zero],
-  rw [add_zero],
+  {rw [add_zero],
   rw [add_zero],},
-  {rw [add_succ(a+b)(d),],
+  {rw [add_succ(a+b)(d)],
   rw [add_succ],
   rw [add_succ],
   rw [hd],},
@@ -53,8 +52,7 @@ Seien $a, b, c \in \mathbb{N}$. Dann ist $(a + b) + c = a + (b + c)$.
 theorem add_assoc (a b c : N) : (a + b) + c = a + (b + c) :=
 begin
   induction c with d hd,
-  {rw [N_zero_eq_zero],
-  repeat{rw [add_zero],},},
+  {repeat{rw [add_zero],},},
   {repeat{rw [add_succ],},
   rw [hd],},
 

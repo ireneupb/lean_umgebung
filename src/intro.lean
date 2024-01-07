@@ -15,12 +15,12 @@ werden. Für diese Rechenoperationen werden wir dann die grundlegenden Eigenscha
 wie Kommutativität und Assoziativität zeigen. Danach führen wir das Konzept der 
 Ungleichungen ein, indem wir definieren, dass $a \leq b$ genau dann, wenn ein 
 $k \in \mathbb{N}$ existiert, sodass $a+k=b$. Diese Resultate verwenden wir um am Ende
-der Lernumgebung den Satz der Divion mit Rest zu zeigen, also:
+der Lernumgebung den Satz der Division mit Rest zu zeigen, also:
 
-Für alle $n,m \in \mathbb{N}$ mit $m>0$ gibt es $q,r \in \mathbb{N}$ mit $q < m$ und
-$n=q*m+r$.
+Für alle $n,m \in \mathbb{N}$ mit $m>0$ gibt es $q,r \in \mathbb{N}$ mit $r < m$ und
+$n=q ⬝ m+r$.
 
-### Technologisch
+### Technisch
 Wir werden die Programmiersprache 
 <a href="https://leanprover-community.github.io/" target="blank">LEAN</a> kennenlernen.
 LEAN ist ein interaktiver Theorembeweiser. In einem Theorembeweiser kann man
@@ -30,18 +30,18 @@ aktuellen Stand des Beweises geben.
 
 
 ## Eine kurze Anleitung.
-Mit diesem Tool kannst du an dieser Einheit arbeiten. Die Einheit ist in die Kapitel
-Peano, Addition, Multiplikation, Ungleichungen und Division mit Rest eingeteilt. Jedes
+Mit dieser Lernumgebung kannst du an dieser Einheit arbeiten. Die Einheit ist in die Kapitel
+"Peano", "Addition", "Multiplikation", "Ungleichungen und Gleihungen" und "Division mit Rest" eingeteilt. Jedes
 Kapitel hat mehrere Level. Am besten ist es, wenn du die Kapitel und Level der Reihe nach 
 bearbeitest.
 
 In jedem Level gibt es als Erstes einen Text, der den mathematischen Inhalt und die 
 nötigen LEAN-Anleitungen des Levels einführt. Darunter ist die zu lösende Aufgabe:
 der Beweis eines Satzes, der in LEAN ausgeführt werden soll. Oft musst du den Beweis
-nicht vollständig selber machen, weil ein Ausgangs-Code ist in der Einführung gegeben
+nicht vollständig selber machen, weil ein Ausgangs-Code in der Einführung gegeben
 ist.
 
-Dein Fortschritt wird im normalfall automatisch im Browser gespeichert. Wenn du 
+Dein Fortschritt wird im Normalfall automatisch im Browser gespeichert. Wenn du 
 vorsichtshalber deinen Stand speichern möchtest klicke in diesem Fensters den 💾 Button 
 über dem Spielbaum. Damit wird dein Spielstand in einer json-Datei gespeichert. Diese 
 kannst du beim nächsten Mal hochladen, indem du den 📝 Button klickst. 

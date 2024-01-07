@@ -35,10 +35,10 @@ natürlichen Zahlen vorkommt. Die Aussage ist: Sei $a \in \mathbb{N}$.
 Dann ist `succ`$(a)+0=$`succ`$(a+0)$. Wir können diese Aussage beweisen,
 indem wir die Aussage `add_zero` mit `rw` auf das Beweisziel anwenden.
 
-In dieser Aussage kommen zwei Ausrücke der Form $n+0$ vor. Man kann bei der
+In dieser Aussage kommen zwei Ausdrücke der Form $n+0$ vor. Man kann bei der
 Tactic rw konkretisieren, auf welche der beiden Stellen rw angewandt werden
 soll. Probiere in dem Beweis erst `rw [add_zero(a)],` aus. Lösche diese Zeile
-und schreibe stattdessen `rw [add_zero(a.succ)],`. Siehts du den unterschied im
+und schreibe stattdessen `rw [add_zero(a.succ)],`. Siehst du den Unterschied im
 Beweisziel?
 -/
 
@@ -46,7 +46,7 @@ Beweisziel?
 Sei $a \in \mathbb{N}$. Dann ist `succ`$(a)+0=$`succ`$(a+0)$.
 -/
 
-theorem succ_add_zero (a : N) : succ(a)+0=succ(a+0) :=
+theorem succ_add_zero (a : N) : succ(a)+zero=succ(a+zero) :=
 begin
 rw [add_zero(a)],
 rw [add_zero(a.succ)],

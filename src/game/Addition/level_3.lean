@@ -21,6 +21,11 @@ den Beweis mit `rw` und den verfügbaren Axiomen `one_eq_succ_zero`,
 `add_succ` und `add_zero`. 
 -/
 
+/- Hint : Aufgabe nach dem Lösen des LEAN-Beweises
+Schau dir den Beweiszustand nach der ersten Zeile `rw [one_eq_succ_zero],` an. Betrachte nun in der linken Spalte die Sätze, die
+wir zur Addition bereits bewiesen haben. Kannst du an dieser Stelle einen davon verwenden?
+-/
+
 /- Theorem
 Sei $a \in \mathbb{N}$. Dann ist `succ`$(a) = a + 1$.
 -/

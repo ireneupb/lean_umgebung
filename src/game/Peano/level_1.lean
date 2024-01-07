@@ -58,11 +58,12 @@ jedes LEAN-Befehls ist sehr wichtig. Wenn du Fehlermeldungen bekommst, die du ni
 verstehst, überprüfe deinen Code auf fehlende Kommata.
 
 Die rechte Spalte:
-Hier gibt LEAN dynamisches Feedback. Bis auf die letzte Zeile steht hier immer was 
-gegeben ist, in diesem Fall zum Beispiel, dass a und b natürliche Zahlen sind und die
-Aussage `h`. In der letzten Zeile, nach dem `⊢` Symbol, steht immer das aktuelle Ziel, 
+Diese Spalte wird als Beweiszustand bezeichnet. Hier gibt LEAN dynamisches Feedback. 
+Bis auf die letzte Zeile stehen hier die gegebenen Aussagen, in diesem Fall zum Beispiel, 
+dass a und b natürliche Zahlen sind und die
+Aussage `h`. In der letzten Zeile, nach dem `⊢` Symbol, steht immer das aktuelle Beweisziel, 
 also das, was gerade zu  zeigen ist. Wenn man am Anfang des Beweises steht, ist das 
-noch die ganze Aussage des Lemmas. Nachdem man `rw [h],` eingibt, sieht man, dass sich 
+noch die ganze Aussage des Satzes. Nachdem man `rw [h],` eingibt, sieht man, dass sich 
 der Zustand ändert. In diesem Fall kommt die Nachricht `Proof complete!`, die uns 
 angibt, dass wir fertig sind. In längeren Aufgaben würde hier das neue Ziel stehen. Ein
 Beweis ist dann zuende, wenn eine Aussage der Form "a=a" als Beweiszustand entsteht.

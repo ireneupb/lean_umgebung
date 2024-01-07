@@ -9,8 +9,7 @@ Zuletzt Beweisen wir die Assoziativität der Multiplikation. Schau dir dazu zun�
 wieder den Beweis der Assoziativität der Addition an:
 ```
 induction c with d hd,
-{rw [N_zero_eq_zero],
-repeat{rw [add_zero],},},
+{repeat{rw [add_zero],},},
 {repeat{rw [add_succ],},
 rw [hd],},
 ```
@@ -27,8 +26,7 @@ Seien $a, b, c \in \mathbb{N}$. Dann ist $(a * b) * c = a * (b * c)$.
 theorem mul_assoc (a b c : N) : (a * b) * c = a * (b * c) :=
 begin
 induction c with d hd,
-{rw [N_zero_eq_zero],
-repeat {rw [mul_zero],},},
+{repeat {rw [mul_zero],},},
 {repeat{rw [mul_succ]},
 rw [left_distrib],
 rw [hd],},

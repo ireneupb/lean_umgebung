@@ -27,8 +27,7 @@ die Induktionsvorraussetzung `hd` verwendet werden kann.
 
 ```
 induction Induktionsvariable with d hd,
-{rw [N_zero_eq_zero],
-sorry,},
+{sorry,},
 {sorry,
 rw [hd],
 repeat {rw [add_succ],},
@@ -43,8 +42,7 @@ Seien $a, b \in \mathbb{N}$. Dann ist `succ`$(a) * b = a * b + b$.
 theorem succ_mul (a b : N) : succ(a) * b = a * b + b :=
 begin
 induction b with d hd,
-{rw [N_zero_eq_zero],
-repeat {rw [mul_zero],},
+{repeat {rw [mul_zero],},
 rw [add_zero],},
 {repeat {rw [mul_succ],},
 rw [hd],

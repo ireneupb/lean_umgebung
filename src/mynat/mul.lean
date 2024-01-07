@@ -15,7 +15,7 @@ refl
 end
 
 
-lemma mul_zero (m : N) : m * 0 = 0 := rfl
+lemma mul_zero (m : N) : m * zero = zero := rfl
 
 lemma mul_succ (m n : N) : m * (succ n) = m * n + m := rfl
 

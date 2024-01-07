@@ -28,7 +28,7 @@ def one : N := succ 0
 
 instance : has_one N := ⟨N.one⟩
 
-theorem one_eq_succ_zero : 1 = succ 0 := rfl
+theorem one_eq_succ_zero : 1 = succ zero := rfl
 
 lemma zero_ne_succ (m : N) : (0 : N) ≠ succ m := λ h, by cases h
 

@@ -9,8 +9,7 @@ Die Ergebnisse aus Level 1 und 2 sind genug, um die Kommutativität der Multipli
 zu zeigen! Hier ist zur Erinnerung der Beweis der Kommutativität der Addition:
 ```
 induction b with d hd,
-{rw [N_zero_eq_zero],
-rw [add_zero a],
+{rw [add_zero a],
 rw [zero_add a],},
 {rw [add_succ a],
 rw [hd],
@@ -30,8 +29,7 @@ Seien $a, b \in \mathbb{N}$. Dann ist a * b = b * a
 theorem mul_comm (a b : N) : a * b = b * a :=
 begin
 induction b with d hd,
-{rw [N_zero_eq_zero],
-rw [mul_zero],
+{rw [mul_zero],
 rw [zero_mul],},
 {rw [mul_succ],
 rw [hd],

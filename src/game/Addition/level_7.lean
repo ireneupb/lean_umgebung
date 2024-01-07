@@ -13,8 +13,7 @@ fast richtigen Beweis korrigieren.
 Kopiere dazu folgenden Beweis mit Fehler in die Aufgabe:
 ```
 induction b with d hd,
-{rw [N_zero_eq_zero],
-rw [add_zero(a)],
+{rw [add_zero(a)],
 rw [zero_add(a),],},
 {rw [add_succ(a)],
 rw [hd],
@@ -33,8 +32,7 @@ Seien $a, b \in \mathbb{N}$. Dann ist a+b=b+a.
 theorem add_comm (a b: N) : a + b = b + a :=
 begin
   induction b with d hd,
-  {rw [N_zero_eq_zero],
-  rw [add_zero(a)],
+  {rw [add_zero(a)],
   rw [zero_add(a)],},
   {rw [add_succ(a)],
   rw [hd],

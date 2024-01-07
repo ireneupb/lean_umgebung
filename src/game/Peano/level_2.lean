@@ -5,8 +5,7 @@ import game.Peano.level_1 --hide
 namespace N -- hide
 
 /-
-In diesem Level passiert nicht viel. Es dient eher zur Übung von dem Gelernten in
-Level 1 und um ein weiteres feature des `rw` Befehls zu verstehen.
+In diesem Level werden wir das in Level 1 Gelernten üben und ein weiteres Feature des `rw` Befehls verstehen.
 
 Vielleicht hast du gemerkt, dass es eine linke Spalte gibt. Hier kannst du alle
 Tools finden, die du zum Beweisen brauchst. Das sind einerseits die Befehle (wie
@@ -41,5 +40,5 @@ end N -- hide
 
 /- Hint : Brauchst du Hilfe, um einen zweiten Weg zu finden?
 In der zu zeigenden Aussage kommt der Term `c` vor, der auch Teil der Aussage
-`g` ist. Du kannst also mit `rw [← g],` das `c` in der Aussage ersetzen.
+`g` ist. Du kannst also mit `rw [← g],` das `c` in dem Beweisziel ersetzen.
 -/

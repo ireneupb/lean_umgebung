@@ -34,8 +34,7 @@ der Multiplikation sehr ähnlich zu der der Addition ist, wird auch dieser Bewei
 zu dem Beweis $0+a=0$ (Addition - Level 4) sein, du kannst diesen als Fahrplan verwenden:
 ```
 induction a with d hd,
-{rw [N_zero_eq_zero],
-rw [add_zero],},
+{rw [add_zero],},
 {rw [add_succ],
 rw [hd],},
 ```
@@ -44,11 +43,10 @@ rw [hd],},
 /- Theorem
 Sei $a \in \mathbb{N}$. Dann ist $0*a=0$.
 -/
-theorem zero_mul (a: N) : 0*a = 0 :=
+theorem zero_mul (a: N) : zero*a = zero :=
 begin
 induction a with d hd,
-{rw [N_zero_eq_zero],
-rw [mul_zero],},
+{rw [mul_zero],},
 {rw [mul_succ],
 rw [hd],
 rw [add_zero],},

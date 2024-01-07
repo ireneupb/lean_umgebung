@@ -20,8 +20,8 @@ g : succ(b) = c
 ```
 wird `rw [← h] at g,` den Beweiszustand nicht ändern, dafür aber `g` umformen zu 
 `g : succ(succ(a))=c`. In diesem Beispiel hätten wir dann eine Aussage, die
-exakt gleich zu dem Beweiszustand ist. Um diese Aussage zu verwenden um den
-Beweiszustand zu lösen, können wir die `exact` tactic verwenden und den Beweis
+exakt gleich zu dem Beweisziel ist. Um diese Aussage zu verwenden um das
+Beweisziel zu lösen, können wir die `exact` Tactic verwenden und den Beweis
 mit `exact g` schließen.
 
 Den Beweis in diesem Level kannst du ebenfalls mit `rw ... at ...,` und `exact...,`
@@ -55,8 +55,3 @@ löst `exact h` den Beweis.
 -/
 
 end N -- hide
-
-/- Hint : Brauchst du Hilfe, um einen zweiten Weg zu finden?
-In der zu zeigenden Aussage kommt der Term `c` vor, der auch Teil der Aussage
-`g` ist. Du kannst also mit `rw [← g],` das `c` in der Aussage ersetzen.
--/
