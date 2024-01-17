@@ -25,17 +25,6 @@ Die beiden Aussagen, die die Potenzierung definieren, sind in LEAN implementiert
 haben jeweils den Namen `pow_zero` und `pow_succ`.
 -/
 
-/- Hint : Klicke hier, um die Definition der Potenzierung der natürlichen Zahlen in LEAN zu sehen. Du musst diesen Code nicht zu 100% verstehen.
-Definition: <br>
-`def pow : N → N → N` <br>
-`| m zero := one` <br>
-`| m (succ n) := pow m n * m` <br>
-
-Den beiden definierenden Eigenschaften wird ein Namen gegeben: <br>
-`lemma pow_zero (m : N) : m ^ (zero : N) = one := rfl` <br>
-`lemma pow_succ (m n : N) : m ^ (succ n) = m ^ n * m := rfl`
--/
-
 /-
 In diesem Level werden wir zeigen, dass nach Definition gilt, dass $0^0=1$.
 -/

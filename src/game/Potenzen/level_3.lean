@@ -7,7 +7,7 @@ namespace N -- hide
 /-
 Da wir die Potenz nur für $0$ explizit definiert haben, und ansonsten nur über Induktion,
 ist noch nicht bewisen, dass $a^1=a$ gilt. Du kannst in diesem Level mit der rw Tactic arbeiten.
-Dazu kannst du dich an folgender abfolge von Beweiszuständen orientieren. Welche Sätze musst
+Dazu kannst du dich an folgender Abfolge von Beweiszuständen orientieren. Welche Sätze musst
 du jeweils anwenden um diese Zustände nachzubauen?
 
 ```

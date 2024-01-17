@@ -1,7 +1,7 @@
 -- Level name : Potenzieren als Homomorphismus $⬝∧c: (\mathbb{N}, *) → (\mathbb{N}, *)$
 
 import data.nat.basic -- hide
-import mynat.one_eq
+import mynat.one_eq -- hide
 import tactic -- hide
 namespace nat -- hide
 

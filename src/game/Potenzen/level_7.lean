@@ -1,7 +1,7 @@
 -- Level name : Potenz einer Potenz
 
 import data.nat.basic -- hide
-import mynat.one_eq
+import mynat.one_eq -- hide
 import tactic -- hide
 namespace nat -- hide
 
