@@ -66,3 +66,17 @@ levels = [
 	"src/game/Division_mit_Rest/level_2.lean",
 	"src/game/Division_mit_Rest/level_3.lean",
 ]
+
+[[worlds]]
+name = "Potenzen"
+id = 6
+parents = [3]
+levels = [
+	"src/game/Potenzen/level_1.lean",
+	"src/game/Potenzen/level_2.lean",
+	"src/game/Potenzen/level_3.lean",
+	"src/game/Potenzen/level_4.lean",
+	"src/game/Potenzen/level_5.lean",
+	"src/game/Potenzen/level_6.lean",
+	"src/game/Potenzen/level_7.lean",
+]

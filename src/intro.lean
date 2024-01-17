@@ -10,9 +10,9 @@ auf die formale Definition eingegangen.
 
 In dieser Einheit möchten wir die Definition der natürlichen Zahlen nach Peano
 betrachten. Grob gesagt entstehen damit die natürlichen Zahlen aus der 0 zusammen 
-mit Rekursion. Über die Rekursion kann dann die Addition und Multiplikation definiert 
-werden. Für diese Rechenoperationen werden wir dann die grundlegenden Eigenschaften 
-wie Kommutativität und Assoziativität zeigen. Danach führen wir das Konzept der 
+mit Rekursion. Über die Rekursion kann dann die Addition, Multiplikation und
+Potenzierung definiert werden. Für diese Rechenoperationen werden wir dann die grundlegenden 
+Eigenschaften wie Kommutativität und Assoziativität zeigen. Danach führen wir das Konzept der 
 Ungleichungen ein, indem wir definieren, dass $a \leq b$ genau dann, wenn ein 
 $k \in \mathbb{N}$ existiert, sodass $a+k=b$. Diese Resultate verwenden wir um am Ende
 der Lernumgebung den Satz der Division mit Rest zu zeigen, also:
@@ -31,9 +31,15 @@ aktuellen Stand des Beweises geben.
 
 ## Eine kurze Anleitung.
 Mit dieser Lernumgebung kannst du an dieser Einheit arbeiten. Die Einheit ist in die Kapitel
-"Peano", "Addition", "Multiplikation", "Ungleichungen und Gleihungen" und "Division mit Rest" eingeteilt. Jedes
-Kapitel hat mehrere Level. Am besten ist es, wenn du die Kapitel und Level der Reihe nach 
-bearbeitest.
+"Peano", "Addition", "Multiplikation", "Ungleichungen und Gleihungen", "Division mit Rest"
+und "Potenzen" eingeteilt. Jedes Kapitel hat mehrere Level. Am besten ist es, wenn du die Kapitel 
+und Level der Reihe nach bearbeitest. Nach dem Kapitel "Multiplikation" teilt sich der Baum
+in zwei, hier kannst du wählen, wie du weitermachst. Entweder du gehst zu dem Kapitel "Potenzen",
+wo ähnlich zur Addition und Multiplikation die Potenzierung eingeführt wird und die Potenzgesetzte
+gezeigt werden oder du gehst den Weg über "Ungleichungen und Gleichungen" zur "Division mit Rest",
+wo wir zeigen werden, dass für natürliche Zahlen die Division mit Rest definiert werden kann. Auf
+dem Weg "Potenzen" werden die gelernten Lean-Inhalte wiederholt, währen es auf dem Weg zur
+"Division mit Rest" neue Beweistypen und Tactics gibt.
 
 In jedem Level gibt es als Erstes einen Text, der den mathematischen Inhalt und die 
 nötigen LEAN-Anleitungen des Levels einführt. Darunter ist die zu lösende Aufgabe:

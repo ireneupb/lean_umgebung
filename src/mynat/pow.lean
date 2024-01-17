@@ -14,7 +14,7 @@ begin
 refl
 end
 
-lemma pow_zero (m : N) : m ^ (0 : N) = 1 := rfl
+lemma pow_zero (m : N) : m ^ (zero : N) = one := rfl
 
 lemma pow_succ (m n : N) : m ^ (succ n) = m ^ n * m := rfl
 

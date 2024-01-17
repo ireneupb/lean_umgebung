@@ -10,7 +10,7 @@ one = succ(zero)
 
 /-
 Aus praktischen Gründen möchten wir nun dem Nachfolger von $0$ einen Namen
-geben. Diese Zahl nennen wir $1$. Die Aussage `one = succ(zero)` heißt in
+geben. Diese Zahl nennen wir $1$ (in Lean `one`). Die Aussage `one = succ(zero)` heißt in
 LEAN `one_eq_succ_zero`.
 -/
 
@@ -29,11 +29,12 @@ wir zur Addition bereits bewiesen haben. Kannst du an dieser Stelle einen davon 
 /- Theorem
 Sei $a \in \mathbb{N}$. Dann ist `succ`$(a) = a + 1$.
 -/
-theorem succ_eq_add_one (a : N) : succ(a) = a + 1 :=
+theorem succ_eq_add_one (a : N) : succ(a) = a + one :=
 begin
 rw [one_eq_succ_zero],
 rw [add_succ],
 rw [add_zero],
+-- rw add_succ_zero,
 
 
 
