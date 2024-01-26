@@ -10,6 +10,13 @@ wir noch nicht formal als $1$ eingeführt haben), gleich dem Nachfolger der Zahl
 Löse den Beweis mit `rw` und den verfügbaren Axiomen.
 -/
 
+/- Hint : Lösung
+````
+rw [add_succ],
+rw [add_zero],
+```
+-/
+
 /- Theorem
 Sei $a \in \mathbb{N}$. Dann ist $a+$`succ`$(0)=$`succ`$(a)$
 -/

@@ -53,6 +53,19 @@ den Induktionsschritt zeigen. Hinter die Klammern, wie auch hinter jedem Schritt
 den Klammern gehört wie immer ein ",".
 -/
 
+/-
+Für den Beweis kannst du mit diesem unvollständigem Beweis starten:
+```
+induction a with d hd,
+{rw [add_zero],},
+{rw [add_succ],
+sorry,},
+```
+Klicke dich durch den Beweis und achte dabei auf den Beweiszustand. Kannst du den Induktionsanfang
+und Induktionsschritt identifizieren? Wo sorry steht muss jetzt nur noch die Induktionshypothese
+`hd` angewandt werden. Das kannst du wie üblich mit dem `rw` Befehl machen.
+-/
+
 /- Theorem
 Sei $a \in \mathbb{N}$. Dann ist $0+a=a$.
 -/
