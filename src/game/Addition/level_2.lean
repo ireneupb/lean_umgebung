@@ -11,7 +11,7 @@ Löse den Beweis mit `rw` und den verfügbaren Axiomen.
 -/
 
 /- Hint : Lösung
-````
+```
 rw [add_succ],
 rw [add_zero],
 ```
